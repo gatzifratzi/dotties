@@ -1,0 +1,253 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+//
+// command pallete ist cmd + shift + p
+{
+    //STANDARD SACHEN
+    "show_edit_predictions": false,
+    "vim_mode": true,
+    "relative_line_numbers": true,
+    "base_keymap": "VSCode",
+    "autosave": "off",
+    "restore_on_startup": "last_session",
+    "hour_format": "hour24",
+    "soft_wrap": "bounded",
+    "preferred_line_length": 100,
+    "current_line_highlight": "all",
+    "when_closing_with_no_tabs": "close_window",
+    "use_system_path_prompts": false,
+    "diagnostics": {
+        "include_warnings": true
+    },
+    "scrollbar": {
+        "show": "auto",
+        "axes": {
+            "horizontal": false,
+            "vertical": true
+        }
+    },
+
+    //VISUELLES
+
+    //Themes
+    // Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred (cmd-k cmd-t)
+    "theme": "Catppuccin Espresso (Blur)",
+    "experimental.theme_overrides": {
+        "background.appearance": "blurred",
+        //macht line numbers mit catpuccin blur sichtbar
+        "editor.line_number": "#f5e0dc90",
+        "editor.active_line_number": "#FFFFFFFF"
+    },
+    "icon_theme": "Material Icon Theme",
+
+    //Fonts
+    "cursor_shape": "bar",
+    "ui_font_size": 16,
+    "ui_font_family": "MonaspiceKr Nerd Font Mono",
+    "buffer_font_size": 18,
+    "buffer_font_family": "MonaspiceAr Nerd Font Mono",
+    "buffer_font_features": {},
+    "buffer_line_height": "comfortable",
+
+    //Active Pane Modifiers
+    "active_pane_modifiers": {
+        "inactive_opacity": 0.8,
+        "border_size": 0
+    },
+
+    //Tabs
+    "tabs": {
+        "close_position": "right",
+        "file_icons": true,
+        "git_status": true,
+        "activate_on_close": "history"
+    },
+
+    "tab_bar": {
+        "show": true,
+        "show_nav_history_buttons": true
+    },
+
+    "preview_tabs": {
+        "enabled": true,
+        "enable_preview_from_file_finder": false,
+        "enable_preview_from_code_navigation": false
+    },
+
+    //Git
+    "git": {
+        "git_gutter": "tracked_files",
+        "inline_blame": {
+            "enabled": true,
+            "show_commit_summary": true,
+            "delay_ms": 0
+        }
+    },
+
+    //Wo und wie wird was im UI angezeigt
+    //Project Panel
+    "project_panel": {
+        "button": true,
+        "default_width": 150,
+        "dock": "left",
+        "entry_spacing": "comfortable",
+        "file_icons": true,
+        "folder_icons": true,
+        "git_status": true,
+        "show_diagnostics": "errors",
+        "indent_size": 15,
+        "indent_guides": {
+            "show": "always"
+        },
+        "auto_reveal_entries": true,
+        "auto_fold_dirs": true
+    },
+
+    "outline_panel": {
+        "button": true,
+        "default_width": 250,
+        "dock": "left",
+        "file_icons": true,
+        "folder_icons": true,
+        "git_status": true,
+        "indent_size": 15,
+        "auto_reveal_entries": true,
+        "auto_fold_dirs": true,
+        "indent_guides": {
+            "show": "always"
+        }
+    },
+
+    "git_panel": {
+        "button": true,
+        "dock": "left",
+        // Default width of the git panel.
+        "default_width": 200
+    },
+    "collaboration_panel": {
+        "dock": "right",
+        "button": false
+    },
+    "chat_panel": {
+        "dock": "right",
+        "button": "never"
+    },
+    "notification_panel": {
+        "dock": "right",
+        "button": false
+    },
+
+    //TERMINAL
+    "terminal": {
+        "dock": "bottom",
+        "button": true,
+        "alternate_scroll": "off",
+        "blinking": "terminal_controlled",
+        "copy_on_select": false,
+        "env": {},
+        "font_family": "MonaspiceKr Nerd Font Mono",
+        "font_size": 16,
+        "option_as_meta": false,
+        "shell": "system",
+        "working_directory": "current_project_directory"
+    },
+
+    "assistant": {
+        "version": "2",
+        "enabled": true,
+        "button": true,
+        "dock": "right",
+        "default_width": 450,
+        "default_height": 320,
+        "default_model": {
+            "provider": "google",
+            "model": "gemini-2.0-flash-lite-preview"
+        }
+    },
+
+    "features": {
+        "edit_prediction_provider": "zed"
+    },
+
+    "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_background": false,
+        "edit_debounce_ms": 400,
+        "scroll_debounce_ms": 50
+    },
+
+    //LSPs und Formatierung
+    "enable_language_server": true,
+    "hover_popover_enabled": true,
+    "lsp_highlight_debounce": 50,
+    "hover_popover_delay": 50,
+    "hard_tabs": false,
+    "tab_size": 4,
+    "use_autoclose": true,
+    "use_auto_surround": true,
+    "use_on_type_format": true,
+    "show_completions_on_input": true,
+    "show_completion_documentation": true,
+    "format_on_save": "on",
+    "remove_trailing_whitespace_on_save": true,
+    "ensure_final_newline_on_save": true,
+
+    "languages": {
+        "Haskell": {
+            "show_edit_predictions": false,
+            "enable_language_server": true,
+            "language_servers": ["hls", "..."],
+            "formatter": "language_server"
+        },
+        "C++": {
+            "enable_language_server": true,
+            "language_servers": ["clangd", "..."],
+            "formatter": "language_server",
+            "format_on_save": "on",
+            "use_on_type_format": true
+        },
+        "LaTeX": {
+            "formatter": "language_server"
+        },
+        "Python": {
+            "enable_language_server": true,
+            "language_servers": ["!pyright", "pylsp", "..."],
+            "formatter": "prettier"
+        },
+        "TypeScript": {
+            "enable_language_server": true,
+            "language_servers": ["!typescript-language-server", "vtsls", "..."],
+            "formatter": "prettier"
+        },
+        "JavaScript": {
+            "enable_language_server": true,
+            "language_servers": ["!typescript-language-server", "vtsls", "..."],
+            "formatter": "prettier"
+        },
+        "HTML": {
+            "enable_language_server": true,
+            "language_servers": ["microsoft/vscode-html-languageservice", "..."],
+            "formatter": "prettier"
+        },
+        "CSS": {
+            "enable_language_server": true,
+            "language_servers": ["tailwindcss-language-server", "..."],
+            "formatter": "prettier"
+        },
+        "TOML": {
+            "enable_language_server": true,
+            "formatter": "prettier"
+        }
+    },
+
+    "lsp": {}
+}

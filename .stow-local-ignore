@@ -1,0 +1,37 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+/.cvsignore
+
+/.svn
+_darcs
+/.hg
+
+/.git
+/.gitignore
+/.gitmodules
+/.github
+
+/README.*
+/LICENSE.*
+/LICENSE
+/COPYING
+/README.md
+
+.DS_Store
+
+
+#fucking zen browser chromecss git repo
+# Ignore specific files
+/Library/Application Support/zen/Profiles/twilight/chrome/bento.json
+/Library/Application Support/zen/Profiles/twilight/chrome/README.md
+/Library/Application Support/zen/Profiles/twilight/chrome/LICENSE
+/Library/Application Support/zen/Profiles/twilight/chrome/.gitignore
+
+# Ignore directories
+/Library/Application Support/zen/Profiles/twilight/chrome/.git
+/Library/Application Support/zen/Profiles/twilight/chrome/.github
+/Library/Application Support/zen/Profiles/twilight/chrome/images

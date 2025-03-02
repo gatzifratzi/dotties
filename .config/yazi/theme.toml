@@ -1,0 +1,6 @@
+[flavor]
+light = "catppuccin-latte"
+#dark = "catppuccin-frappe"
+dark = "dracula"
+#dark = "ayu-dark"
+#dark = "kanagawa"
