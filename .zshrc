@@ -24,9 +24,19 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # --- plugins ---
+fpath=(/opt/homebrew/share/zsh-completions/ $fpath) # ich verstehe dieses plugin nicht
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt=appendhistory
+setopt=sharehistory
+setopt=hist_ignore_space
+setopt=hist_ignore_all_dups
+setopt=hist_save_no_dups
 
 # --- fzf ---
 eval "$(fzf --zsh)"
