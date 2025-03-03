@@ -42,7 +42,9 @@
         "background.appearance": "blurred",
         //macht line numbers mit catpuccin blur sichtbar
         "editor.line_number": "#f5e0dc90",
-        "editor.active_line_number": "#FFFFFFFF"
+        "editor.active_line_number": "#FFFFFFFF",
+        "element.selected": null,
+        "selection": "#FFFFFF"
     },
     "icon_theme": "Material Icon Theme",
 

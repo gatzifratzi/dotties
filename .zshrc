@@ -28,15 +28,22 @@ fpath=(/opt/homebrew/share/zsh-completions/ $fpath) # ich verstehe dieses plugin
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# --- History ---
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt=appendhistory
-setopt=sharehistory
-setopt=hist_ignore_space
-setopt=hist_ignore_all_dups
-setopt=hist_save_no_dups
+setopt APPENDHISTORY
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt SHARE_HISTORY             # Share history between all sessions.
+
+
 
 # --- fzf ---
 eval "$(fzf --zsh)"
@@ -70,11 +77,12 @@ function y() {
 export PATH="/Users/jakob/.local/bin:$PATH"
 alias tetris="tetris --preview-chars '[]'"
 
-# --- aliasse ---
+# --- aliasse und keybinds ---
 alias zedi='zed $(fzf -m --preview="bat --color=always {}")' #oeffne file in zed editor
 alias opi='open $(fzf -m)' #oeffne files mit standardapp des files
 alias startai="ollama run deepseek-r1:7b" #startet ki in ollama
 alias runol="brew services run ollama" #startet ollama
 alias killol="brew services kill ollama" #killt ollama (geht nur so halb)
 alias stopol="brew services stop ollama" #stoppt ollama
-alias calc="bc -z --scale=10 -l"
+alias calc="bc -z --scale=10 -l" #startet bc mit guter taschenrechnerkonfiguration
+bindkey '^H' autosuggest-accept # binded ctrl h auf autocomplete fuer autosuggestions
