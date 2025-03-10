@@ -36,7 +36,7 @@
     //VISUELLES
 
     //Themes
-    // Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred (cmd-k cmd-t)
+    // XY Zed ist sehr geil, Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred (cmd-k cmd-t)
     "theme": "Catppuccin Espresso (Blur)",
     "experimental.theme_overrides": {
         "background.appearance": "blurred",

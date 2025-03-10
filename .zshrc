@@ -86,3 +86,4 @@ alias killol="brew services kill ollama" #killt ollama (geht nur so halb)
 alias stopol="brew services stop ollama" #stoppt ollama
 alias calc="bc -z --scale=10 -l" #startet bc mit guter taschenrechnerkonfiguration
 bindkey '^H' autosuggest-accept # binded ctrl h auf autocomplete fuer autosuggestions
+alias please="sudo"
