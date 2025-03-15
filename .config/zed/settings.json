@@ -125,13 +125,12 @@
             "show": "always"
         }
     },
-
     "git_panel": {
-        "button": true,
+        "status_style": "icon",
         "dock": "left",
-        // Default width of the git panel.
-        "default_width": 200
+        "default_width": 250
     },
+
     "collaboration_panel": {
         "dock": "right",
         "button": false
@@ -169,7 +168,7 @@
         "default_height": 320,
         "default_model": {
             "provider": "google",
-            "model": "gemini-2.0-flash-lite-preview"
+            "model": "gemini-2.0-flash-thinking-exp"
         }
     },
 
