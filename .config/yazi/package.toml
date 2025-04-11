@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "beb586a"
-hash = "771f18427fb75fb19990ce602bb322f4"
+rev = "a1738e8"
+hash = "e0ada736ea676c2bbb3ec705a49526ef"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "fd85060"
-hash = "c34feed32d555e79ab9a0c0a7bdda2be"
+rev = "68326b4"
+hash = "3ec21bcfd2735cfcbab61faaf43e59e4"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
-rev = "8d487bc"
-hash = "4b0b04345a4001101a43b48500192532"
+rev = "5412a78"
+hash = "60690920e8c0f9f81ff02009de5d156f"
 
 [[flavor.deps]]
 use = "PinThePenguine/sunset"
@@ -25,15 +25,15 @@ hash = "c9e9fcf6b11c9fe63d4ac7c9408f628c"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
-rev = "d98f0c3"
-hash = "cada780385f75abbcfbf5343256b441"
+rev = "31167ed"
+hash = "a04e157148549bacbb2831aab0e6e8cb"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "fd85060"
-hash = "8c24a91f7e6abb2a9ac268bfbd356e77"
+rev = "68326b4"
+hash = "5dffea1e87c50b18b8bb1599f6d4881a"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "fd85060"
-hash = "e88895e8f8b7926f20946f273ecc7348"
+rev = "68326b4"
+hash = "7780fbbc8965da5a31a76a0dcd4d1216"
