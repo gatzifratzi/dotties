@@ -247,8 +247,13 @@
         "TOML": {
             "enable_language_server": true,
             "formatter": "prettier"
-        }
+        },
+        "R": {}
     },
 
-    "lsp": {}
+    "jupyter": {
+        "kernel_selections": {
+            "r": "ark"
+        }
+    }
 }
