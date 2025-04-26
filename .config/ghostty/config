@@ -10,7 +10,7 @@ window-new-tab-position = current
 window-step-resize = true
 window-decoration = true
 window-position-x = 625
-window-position-y = 325
+window-position-y = 275
 window-save-state = never
 
 # THEME

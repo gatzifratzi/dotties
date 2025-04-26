@@ -252,7 +252,7 @@ keymap = [
     { on = [
         "g",
         "v",
-    ], run = "cd /Volumes/JakobExtern", desc = "goto Volumes" },
+    ], run = "cd /Volumes", desc = "goto Volumes" },
     {on = [
         "g",
         "m",
