@@ -4,3 +4,6 @@
 [submodule "Library/Application Support/zen/Profiles/twilight/chrome/wireframe"]
 	path = Library/Application Support/zen/Profiles/twilight/chrome/wireframe
 	url = git@github.com:napuzu/zen-wireframe.git
+[submodule "Library/Application Support/zen/Profiles/twilight/chrome/nebula"]
+	path = Library/Application Support/zen/Profiles/twilight/chrome/nebula
+	url = git@github.com:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser.git
