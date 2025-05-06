@@ -80,10 +80,6 @@ alias tetris="tetris --preview-chars '[]'"
 # --- aliasse und keybinds ---
 alias zedi='zed $(fzf -m --preview="bat --color=always {}")' #oeffne file in zed editor
 alias opi='open $(fzf -m)' #oeffne files mit standardapp des files
-alias startai="ollama run deepseek-r1:7b" #startet ki in ollama
-alias runol="brew services run ollama" #startet ollama
-alias killol="brew services kill ollama" #killt ollama (geht nur so halb)
-alias stopol="brew services stop ollama" #stoppt ollama
 alias calc="bc --scale=10 -l" #startet bc mit guter taschenrechnerkonfiguration
 bindkey '^H' autosuggest-accept # binded ctrl h auf autocomplete fuer autosuggestions
 alias please="sudo"
