@@ -159,7 +159,8 @@
         "working_directory": "current_project_directory"
     },
 
-    "assistant": {
+    "agent": {
+        "default_profile": "write",
         "version": "2",
         "enabled": true,
         "button": true,
@@ -168,7 +169,7 @@
         "default_height": 320,
         "default_model": {
             "provider": "google",
-            "model": "gemini-2.0-flash-thinking-exp"
+            "model": "gemini-2.5-flash-preview-04-17"
         }
     },
 
@@ -217,7 +218,7 @@
             "use_on_type_format": true
         },
         "LaTeX": {
-            "formatter": "language_server"
+            "formatter": "auto"
         },
         "Python": {
             "enable_language_server": true,
@@ -247,13 +248,28 @@
         "TOML": {
             "enable_language_server": true,
             "formatter": "prettier"
-        },
-        "R": {}
+        }
     },
 
-    "jupyter": {
-        "kernel_selections": {
-            "r": "ark"
+    "lsp": {
+        "texlab": {
+            "settings": {
+                "texlab": {
+                    "build": {
+                        "forward": {
+                            "search": {}
+                        },
+                        "onSave": false
+                    }
+                }
+            }
+        },
+        "ltex": {
+            "settings": {
+                "ltex": {
+                    "language": "de-DE"
+                }
+            }
         }
     }
 }

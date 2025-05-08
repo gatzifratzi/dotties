@@ -6,6 +6,16 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+    // --- LATEX KEYBINDS ---
+    {
+        //"context": "Workspace",
+        "context": "Editor && extension==tex", // This restricts the keybindings to tex files however does not work when in terminal
+        "bindings": {
+            "cmd-ctrl-v": ["task::Spawn", { "task_name": "forward_search" }],
+            "cmd-ctrl-b": ["task::Spawn", { "task_name": "tectonic_view" }]
+        }
+    },
+
     {
         "context": "Workspace",
         "bindings": {
