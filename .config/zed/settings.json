@@ -35,17 +35,17 @@
     //VISUELLES
 
     //Themes
-    // XY Zed ist sehr geil, Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred (cmd-k cmd-t)
-    "theme": "Catppuccin Mocha (Blur)",
+    // XY Zed ist sehr geil, Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred, Skeletor, Sandstorm (cmd-k cmd-t)
+    "theme": "Skeletor",
     "experimental.theme_overrides": {
-        "background.appearance": "blurred",
+        "background.appearance": "blurred"
         //macht line numbers mit catpuccin blur sichtbar
-        "editor.line_number": "#f5e0dc90",
-        "editor.active_line_number": "#FFFFFFFF",
-        "element.selected": null,
-        "selection": "#FFFFFF"
+        //"editor.line_number": "#f5e0dc90",
+        //"editor.active_line_number": "#FFFFFFFF",
+        //"element.selected": null,
+        //"selection": "#FFFFFF"
     },
-    "icon_theme": "Material Icon Theme",
+    "icon_theme": "Catppuccin Mocha",
 
     //Fonts
     "cursor_shape": "bar",
