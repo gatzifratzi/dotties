@@ -1,8 +1,3 @@
-/*@import "natsumi/natsumi/natsumi.css";
-*/
-
-@import "nebula/Nebula/Nebula.css";
-
 .zen-essentials-container {
     grid-template-columns: repeat(3, 1fr) !important;
 }
