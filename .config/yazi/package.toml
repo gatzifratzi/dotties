@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "55bf699"
-hash = "e0ada736ea676c2bbb3ec705a49526ef"
+rev = "63f9650"
+hash = "bf6f074cd41ee33c3360341d168f9733"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "02f3fc6"
-hash = "3ec21bcfd2735cfcbab61faaf43e59e4"
+rev = "d04a298"
+hash = "e6c5beeb1da3199355734273ee452a7f"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
@@ -30,10 +30,20 @@ hash = "a04e157148549bacbb2831aab0e6e8cb"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "02f3fc6"
-hash = "5dffea1e87c50b18b8bb1599f6d4881a"
+rev = "d04a298"
+hash = "a4d508772dc7b20d739a2f9a1d2d396f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "02f3fc6"
-hash = "7780fbbc8965da5a31a76a0dcd4d1216"
+rev = "d04a298"
+hash = "d659c6fde5148fb5c066518d7fdecddc"
+
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "3d5f847"
+hash = "9b4190e2447f2c843fee23ea5f068f6"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "d04a298"
+hash = "288a0dedd5d13b28605cf82c05326dcd"
