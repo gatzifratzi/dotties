@@ -4,7 +4,6 @@
 
 
 #PLUGINS
-
 # Mount Plugin    q=quit, e=eject, m=mount, u=unmount, l=enter mountpoint
 [[mgr.prepend_keymap]]
 on  = "M"
@@ -25,6 +24,12 @@ desc = "hide preview"
 on = [ "c", "y"]
 run = ["plugin system-clipboard"]
 desc = "yank to clipboard"
+
+#Lazigit Plugin
+[[mgr.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
 
 #Plugin relative-motions gt fuer tab movements. andere keybinds hier https://github.com/dedukun/relative-motions.yazi
 [[mgr.prepend_keymap]]
@@ -63,6 +68,7 @@ desc = "Move in relative steps"
 on = [ "9" ]
 run = "plugin relative-motions 9"
 desc = "Move in relative steps"
+
 
 
 [mgr]
