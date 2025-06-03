@@ -2,8 +2,70 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[mgr]
 
+#PLUGINS
+
+# Mount Plugin    q=quit, e=eject, m=mount, u=unmount, l=enter mountpoint
+[[mgr.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
+
+#toggle-Pane Plugin
+[[mgr.prepend_keymap]]
+on = ["b", "b",]
+run = "plugin toggle-pane max-preview"
+desc = "max preview "
+[[mgr.prepend_keymap]]
+on = ["b", "n",]
+run = "plugin toggle-pane min-preview"
+desc = "hide preview"
+
+#system-clipboard Plugin
+[[mgr.prepend_keymap]]
+on = [ "c", "y"]
+run = ["plugin system-clipboard"]
+desc = "yank to clipboard"
+
+#Plugin relative-motions gt fuer tab movements. andere keybinds hier https://github.com/dedukun/relative-motions.yazi
+[[mgr.prepend_keymap]]
+on = [ "1" ]
+run = "plugin relative-motions 1"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "2" ]
+run = "plugin relative-motions 2"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "3" ]
+run = "plugin relative-motions 3"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "4" ]
+run = "plugin relative-motions 4"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "5" ]
+run = "plugin relative-motions 5"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "6" ]
+run = "plugin relative-motions 6"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "7" ]
+run = "plugin relative-motions 7"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "8" ]
+run = "plugin relative-motions 8"
+desc = "Move in relative steps"
+[[mgr.prepend_keymap]]
+on = [ "9" ]
+run = "plugin relative-motions 9"
+desc = "Move in relative steps"
+
+
+[mgr]
 keymap = [
     { on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selected, or cancel search" },
     { on = "<C-[>", run = "escape", desc = "Exit visual mode, clear selected, or cancel search" },
@@ -103,11 +165,11 @@ keymap = [
     { on = [
         "m",
         "s",
-    ], run = "linemode size", desc = "Linemode: size" },
+    ], run = "linemode size", desc = "size" },
     { on = [
         "m",
         "p",
-    ], run = "linemode permissions", desc = "Linemode: permissions" },
+    ], run = "linemode permissions", desc = "perms" },
     { on = [
         "m",
         "b",
@@ -119,11 +181,12 @@ keymap = [
     { on = [
         "m",
         "o",
-    ], run = "linemode owner", desc = "Linemode: owner" },
+    ], run = "linemode owner", desc = "owner" },
     { on = [
         "m",
         "n",
-    ], run = "linemode none", desc = "Linemode: none" },
+    ], run = "linemode none", desc = "none" },
+
 
     # Copy
     { on = [
@@ -133,7 +196,7 @@ keymap = [
     { on = [
         "c",
         "s",
-    ], run = "copy path", desc = "Copy path" },
+    ], run = "copy path", desc = "Copy path as string" },
     { on = [
         "c",
         "d",
@@ -278,7 +341,7 @@ keymap = [
     { on = "}", run = "tab_swap 1", desc = "Swap current tab with next tab" },
 
     # Tasks
-    { on = "w", run = "tasks_show", desc = "Show task manager" },
+    { on = "w", run = "tasks:show", desc = "Show task manager" },
 
     # Help
     { on = "~", run = "help", desc = "Open help" },
