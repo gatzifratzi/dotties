@@ -84,6 +84,7 @@
     //Git
     "git": {
         "git_gutter": "tracked_files",
+        "hunk_style": "staged_hollow",
         "inline_blame": {
             "enabled": true,
             "show_commit_summary": true,

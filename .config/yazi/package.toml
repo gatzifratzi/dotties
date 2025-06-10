@@ -25,8 +25,8 @@ hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "ce2e890"
-hash = "23915860e59348bf4166778bb0e606f7"
+rev = "2e3b617"
+hash = "b67ee12053113983273e9118a7d1272b"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"

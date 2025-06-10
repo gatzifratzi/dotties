@@ -161,11 +161,11 @@ keymap = [
     { on = [
         "g",
         "<Space>",
-    ], run = "plugin zoxide", desc = "zoxide" },
+    ], run = "plugin zoxide", desc = "zoxide (dir)" },
     { on = [
         "g",
         "f",
-    ], run = "plugin fzf", desc = "fzf" },
+    ], run = "plugin fzf", desc = "fzf (file and dir)" },
 
     # Linemode
     { on = [
