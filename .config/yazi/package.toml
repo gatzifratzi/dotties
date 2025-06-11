@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "63f9650"
+rev = "c648526"
 hash = "bf6f074cd41ee33c3360341d168f9733"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "63f9650"
+rev = "c648526"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
@@ -15,13 +15,13 @@ hash = "9b8f2573da54334b04747e51556040cc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "63f9650"
+rev = "c648526"
 hash = "d5d4f3527592da5fbe77fd6f51815f80"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "63f9650"
-hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
+rev = "c648526"
+hash = "277ba273e5d3d647feb5808d0fe4e4e0"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
