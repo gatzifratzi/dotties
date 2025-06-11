@@ -305,7 +305,7 @@ keymap = [
     { on = [
         "g",
         "c",
-    ], run = "cd ~/.dotfiles", desc = "goto dotfiles" },
+    ], run = "cd ~/dotties", desc = "goto dotfiles" },
     { on = [
         "g",
         "d",
@@ -326,6 +326,11 @@ keymap = [
         "g",
         "m",
     ], run = "cd ~/Movies", desc = "goto Movies"},
+    {on = [
+        "g",
+        "p",
+    ], run = "cd ~/Pictures", desc = "goto Pictures"},
+
 
     # Tabs
     { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
