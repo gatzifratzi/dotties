@@ -13,3 +13,7 @@
 @import "modules/Tabfolders.css";
 @import "modules/Workspace-buttons.css";
 @import "Nebula-config.css";
+@-moz-document url-prefix("chrome:") {
+  import */
+  @import "Nebula-config.css";
+}

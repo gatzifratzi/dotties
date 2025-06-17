@@ -1,2 +1,5 @@
 @import "content/Better-pdf.css";
 @import "content/Transparent-settings.css";
+@-moz-document regexp("^(?!chrome:).*") {
+  arent-settings.css";
+}

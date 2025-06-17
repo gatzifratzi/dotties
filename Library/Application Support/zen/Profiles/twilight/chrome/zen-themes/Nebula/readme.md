@@ -27,7 +27,7 @@
   <img src="https://github.com/user-attachments/assets/6981d87f-8816-444b-a31e-7e12997c2bd6" width="400">
   <img src="https://github.com/user-attachments/assets/cc44bfda-c690-45b3-b147-1304b84ea07d" width="400">
   <img src="https://github.com/user-attachments/assets/b7065ad6-4162-4842-824a-79d4e5fcbd53" width="400">
-  <img src="https://github.com/user-attachments/assets/61729dde-10ef-4738-b6cf-72720353dfb9" width="400">
+  <img src="https://github.com/user-attachments/assets/2e8b2de9-747e-477a-ab51-71fc2198d9be" width="400">
   <img src="https://github.com/user-attachments/assets/8a5e3afd-e5f9-4f4a-8613-8c8843f68b9b" width="400">
   <img src="https://github.com/user-attachments/assets/78528ae5-f119-409b-b881-f69ade03d299" width="400">
 </div>
@@ -50,70 +50,24 @@
 <h2 align="left">☄️ Installation:</h2>
 
 ###
-🎥 **Quick note:** If you want a video tutorial for the installation process then it is there on a youtube video someone made about it: https://www.youtube.com/watch?v=ysXRr6GAsNc&t=9s
 
-### 🧊 Nix Installation
+## 💫 Sine Installation Guide (Recommended)
 
->[!WARNING]
-> This installation method is for **Linux/MacOs users Only** using [Nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
->
-> If you're using `Windows`, read the normal installation process.
+Follow these steps to install and apply the **Nebula** theme to Zen Browser:
 
-<details>
-<summary>‼️ Click here for Nix installation process</summary>
+1. 📝 **Install Sine**
+   - Go to [Sine's Github](https://github.com/CosmoCreeper/Sine/tree/main) and follow its installation process.
+   - This includes downloading and setting up FX-Autoconfig using the auto installer or manual installation.
+   - Then setting up Sine.
+   
+2. 💎 **Installing Nebula through Sine's Marketplace**
+   - Go to settings and click **Sine**, from there a Marketplace will load where Nebula will be shown as a mod to install.
+   - Click the install button and Nebula should be installed as a mod.
+   
+   ![image](https://github.com/user-attachments/assets/a6a88c52-011f-46aa-b4be-1f8fd147ac8c)
 
 
-This repo includes a **Nix flake** that provides a `home-manager` module to install **Nebula** for **Zen Browser** declaratively.
-
-To enable the module, add this repo as a flake input, import the module, and enable `zen-nebula`.
-
-📦 Install using your <code>home-manager</code> module (inside <code>nixosConfigurations</code>)
-
-```nix
-# flake.nix
-{
-  inputs = {
-    # ---Snip---
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
-    # ---Snip---
-  };
-
-  outputs = { nixpkgs, home-manager, ... } @ inputs: {
-    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        home-manager.nixosModules.home-manager
-        {
-          # Must pass in inputs so we can access the module
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-        }
-      ];
-    };
-  };
-}
-
-```
-```nix
-# home.nix
-
-imports = [ inputs.zen-nebula.homeModules.default ];
-
-zen-nebula = {
-  enable = true;
-  profile = "<firefox profile name here>";
-};
-```
-
-</details>
-
-## 🚀 Installation Guide (Windows, MacOS, and manual Linux installation)
+## 🚀 Manual Installation Guide (Windows, MacOS, and Linux installation)
 
 Follow these steps to install and apply the **Nebula** theme on Zen Browser:
 
@@ -163,10 +117,11 @@ Follow these steps to install and apply the **Nebula** theme on Zen Browser:
 - Want to change/disable certain animations? You can do that as well by reading the clear instructions in the `Nebula-config.css` file.  
 - There are lots of inbuilt mods which Nebula has baked in — for example, the `nogaps` mod removes the gap/border from the website window.  
 - Here is a list of configs which you can change through `about:config`
+- **Note:** If you are on Sine version of Nebula, you can click this settings icon on Nebula mod to change its preferences ![image](https://github.com/user-attachments/assets/bad610a8-fc19-454d-acd3-6eb325e11959)
 
 
 <div align="center">
-    <img width="800" src="https://github.com/user-attachments/assets/2408e11c-8a5c-4b86-9d7f-f7789badecd1" />
+    <img width="800" src="https://github.com/user-attachments/assets/19fa0fad-5d05-46d0-a517-e7f0ee3b8549" />
 </div>
 
 ###
@@ -269,6 +224,9 @@ p {
 #background {background-image: none !important; background-color: transparent !important;}
    .tabbing {background-color: transparent !important;} 
     body {background-color: transparent !important;}
+#background-wrapper {
+    opacity: 0 !important;
+}
 ```
 ###
 

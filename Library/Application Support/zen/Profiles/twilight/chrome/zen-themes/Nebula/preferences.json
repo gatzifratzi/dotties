@@ -36,6 +36,10 @@
             {
                 "label": "Crossfade, no blur",
                 "value": 4
+            },
+            {
+                "label": "Zoom out",
+                "value": 5
             }
         ]
     },
@@ -194,5 +198,20 @@
         "type": "checkbox",
         "property": "nebula-remove-workspace-indicator",
         "label": "Removes the workspace indicator."
+    },
+    {
+        "type": "checkbox",
+        "property": "nebula-pinned-extensions-mod",
+        "label": "Enable pinned extensions mod (read Github for further process)."
+    },
+    {
+        "type": "checkbox",
+        "property": "nebula-essentials-gray-icons",
+        "label": "Gray out essentials icons when not hovered/selected"
+    },
+    {
+        "type": "checkbox",
+        "property": "nebula-disable-container-styling",
+        "label": "Disable nebula's container styling"
     }
 ]
