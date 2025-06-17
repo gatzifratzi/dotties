@@ -23,7 +23,6 @@
   
   /* ------------------------- ANIMATIONS ------------------------- */
   
-  html[zen-single-toolbar="true"] {
   @keyframes spin-once {
     to { transform: rotate(180deg); }
   }
@@ -69,6 +68,8 @@
     100% { transform: scale(1); }
   }
   
+  html[zen-single-toolbar="true"] { 
+    
   #preferences-button,
   #downloads-button,
   #back-button,
@@ -159,7 +160,7 @@
   
   #zen-sidebar-top-buttons-customization-target .toolbarbutton-1 > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
     border-radius: 9.5px !important;
-  }
+    }
   }
   
   /* ------------------------- WINDOWS BUTTONS ------------------------ */
