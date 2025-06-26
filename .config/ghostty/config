@@ -58,3 +58,7 @@ quick-terminal-space-behavior = move
 
 # KEYBINDINGS
 keybind = global:control+command+option+space=toggle_quick_terminal
+keybind = control+left_bracket=previous_tab
+keybind = control+right_bracket=next_tab
+keybind = control+shift+left_bracket=move_tab:-1
+keybind = control+shift+right_bracket=move_tab:1
