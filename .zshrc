@@ -83,3 +83,5 @@ alias opi='open $(fzf -m)' #oeffne files mit standardapp des files
 alias calc="bc --scale=10 -l" #startet bc mit guter taschenrechnerkonfiguration
 bindkey '^H' autosuggest-accept # binded ctrl h auf autocomplete fuer autosuggestions
 alias please="sudo"
+alias keybinds='ghostty +list-keybinds | fzf'
+alias themes='ghostty +list-themes'
