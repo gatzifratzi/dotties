@@ -58,11 +58,10 @@ quick-terminal-space-behavior = move
 
 # KEYBINDINGS
 #fuer eine liste einfach 'keybinds' in ghostty tippen
-
 #quick terminal
 keybind = global:control+command+option+space=toggle_quick_terminal
-#tab navigation
 
+#tab navigation
 keybind = control+left_bracket=previous_tab
 keybind = control+right_bracket=next_tab
 keybind = control+shift+left_bracket=move_tab:-1
