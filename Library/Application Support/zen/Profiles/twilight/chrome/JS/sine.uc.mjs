@@ -22,6 +22,7 @@ console.log(`${isCosine ? "Cosine" : "Sine"} is active!`);
 
 const Sine = {
     mainProcess: document.location.pathname === "/content/browser.xhtml",
+    globalDoc: windowRoot.ownerGlobal.document,
     versionBrand: isCosine ? "Cosine" : "Sine",
     engineURL: isCosine ? "https://raw.githubusercontent.com/CosmoCreeper/Sine/cosine/data/engine.json" : "https://cosmocreeper.github.io/Sine/data/engine.json",
     get marketURL() {
@@ -32,22 +33,27 @@ const Sine = {
             return defaultURL;
         }
     },
-    updatedAt: "2025-06-24 13:00",
+    updatedAt: "2025-06-24 22:49",
 
     showToast(label="Unknown", priority="warning", restart=true) {
-        const buttons = restart ? [{
-          label: "Restart",
-          callback: () => {
-              this.restartBrowser();
-              return true;
-          }
-        }] : [];
+        const ifToastExists = Array.from(this.globalDoc.querySelectorAll("notification-message"))
+            .some(notification => notification.__message === label);
+        
+        if (!ifToastExists) {
+            const buttons = restart ? [{
+              label: "Restart",
+              callback: () => {
+                  this.restartBrowser();
+                  return true;
+              }
+            }] : [];
 
-        UC_API.Notifications.show({
-            priority,
-            label,
-            buttons
-        });
+            UC_API.Notifications.show({
+                priority,
+                label,
+                buttons
+            });
+        }
     },
 
     restartBrowser() {
@@ -127,8 +133,7 @@ const Sine = {
             let contentData = "";
 
             if (!UC_API.Prefs.get("sine.mods.disable-all").value) {
-                const globalDoc = windowRoot.ownerGlobal.document;
-                globalDoc.querySelectorAll(".sine-theme-strings, .sine-theme-styles").forEach(el => el.remove());
+                Sine.globalDoc.querySelectorAll(".sine-theme-strings, .sine-theme-styles").forEach(el => el.remove());
 
                 const installedMods = await Sine.utils.getMods();
                 for (const id of Object.keys(installedMods)) {
@@ -156,7 +161,7 @@ const Sine = {
                             if (rootPrefs.length) {
                                 const themeSelector = "theme-" + mod.name.replace(/\s/g, "-");
 
-                                const themeEl = globalDoc.createElement("div");
+                                const themeEl = Sine.globalDoc.createElement("div");
                                 themeEl.id = themeSelector;
                                 themeEl.className = "sine-theme-strings";
 
@@ -167,7 +172,7 @@ const Sine = {
                                     }
                                 }
 
-                                globalDoc.body.appendChild(themeEl);
+                                Sine.globalDoc.body.appendChild(themeEl);
                             }
 
                             const varPrefs = Object.values(modPrefs).filter(pref =>
@@ -175,7 +180,7 @@ const Sine = {
                             );
                             if (varPrefs.length) {
                                 const themeSelector = "theme-" + mod.name.replace(/\s/g, "-") + "-style";
-                                const themeEl = globalDoc.createElement("style");
+                                const themeEl = Sine.globalDoc.createElement("style");
                                 themeEl.id = themeSelector;
                                 themeEl.className = "sine-theme-styles";
                                 themeEl.textContent = ":root {";
@@ -188,7 +193,7 @@ const Sine = {
                                 }
 
                                 themeEl.textContent += "}";
-                                globalDoc.head.appendChild(themeEl);
+                                Sine.globalDoc.head.appendChild(themeEl);
                             }
                         }
                     }
@@ -212,49 +217,68 @@ const Sine = {
             const io = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
             const ds = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
 
-            // Get chrome directory
-            const chromeDir = ds.get("UChrm", Ci.nsIFile);
+            // Consolidated CSS reload loop with window listener for new windows
+            const cssConfigs = ["chrome", "content"];
 
-            const stylesheets = ["chrome", "content"];
-            for (const stylesheet of stylesheets) {
+            for (const config of cssConfigs) {
                 try {
-                    const stylePath = chromeDir.clone();
-                    stylePath.append("sine-mods");
-                    stylePath.append(`${stylesheet}.css`);
-
-                    if (stylePath.exists()) {
-                        const styleURI = io.newFileURI(stylePath);
-
-                        if (stylesheet === "chrome") {
-                            const windowUtils = windowRoot.ownerGlobal.windowUtils || windowRoot.ownerGlobal.QueryInterface(Ci.nsIInterfaceRequestor)
-                                .getInterface(Ci.nsIDOMWindowUtils);
-
-                            // Unregister existing sheet if it exists.
-                            try {
-                                windowUtils.removeSheet(styleURI, windowUtils.USER_SHEET);
-                            } catch {}
-
-                            // Load the sheet.
-                            if (stylesheetData.chrome) {
-                                windowUtils.loadSheet(styleURI, windowUtils.USER_SHEET);
-                            }
-                        } else {
-                            // Unregister existing sheets if they exist.
-                            if (ss.sheetRegistered(styleURI, ss.USER_SHEET)) {
-                                ss.unregisterSheet(styleURI, ss.USER_SHEET);
-                            }
-                            if (ss.sheetRegistered(styleURI, ss.AUTHOR_SHEET)) {
-                                ss.unregisterSheet(styleURI, ss.AUTHOR_SHEET);
-                            }
+                    // Get chrome directory
+                    const chromeDir = ds.get("UChrm", Ci.nsIFile);
                         
-                            // Register the sheet.
-                            if (stylesheetData.content) {
-                                ss.loadAndRegisterSheet(styleURI, ss.USER_SHEET);
+                    const cssPath = chromeDir.clone();
+                    cssPath.append("sine-mods");
+                    cssPath.append(`${config}.css`);
+                        
+                    const cssURI = io.newFileURI(cssPath);
+
+                    if (config === "chrome") {
+                        // Store the cssURI.
+                        Sine.cssURI = cssURI;
+
+                        // Apply to all existing windows
+                        const windowMediator = Cc["@mozilla.org/appshell/window-mediator;1"]
+                            .getService(Ci.nsIWindowMediator);
+
+                        // Get all browser windows including PiP
+                        const windows = windowMediator.getEnumerator(null);
+
+                        while (windows.hasMoreElements()) {
+                            const domWindow = windows.getNext();
+
+                            try {
+                                const windowUtils = domWindow.windowUtils || domWindow.QueryInterface(Ci.nsIInterfaceRequestor)
+                                    .getInterface(Ci.nsIDOMWindowUtils);
+
+                                // Try to unregister existing sheet first
+                                try {
+                                    windowUtils.removeSheet(cssURI, windowUtils.USER_SHEET);
+                                } catch {}
+
+                                // Load the sheet
+                                if (stylesheetData.chrome) {
+                                    windowUtils.loadSheet(cssURI, windowUtils.USER_SHEET);
+                                }
+                            } catch (ex) {
+                                console.warn(`Failed to apply CSS to existing window: ${ex}`);
                             }
                         }
+                    } else {
+                        // Content-specific handling (global)
+                        // Unregister existing sheets if they exist
+                        if (ss.sheetRegistered(cssURI, ss.USER_SHEET)) {
+                            ss.unregisterSheet(cssURI, ss.USER_SHEET);
+                        }
+                        if (ss.sheetRegistered(cssURI, ss.AUTHOR_SHEET)) {
+                            ss.unregisterSheet(cssURI, ss.AUTHOR_SHEET);
+                        }
+
+                        // Register the sheet
+                        if (stylesheetData.content) {
+                            ss.loadAndRegisterSheet(cssURI, ss.USER_SHEET);
+                        }
                     }
-                } catch (err) {
-                    console.warn(`Failed to reload ${stylesheet}.css: `, err);
+                } catch (ex) {
+                    console.error(`Failed to reload ${config}:`, ex);
                 }
             }
         },
@@ -305,7 +329,7 @@ const Sine = {
     async updateEngine() {
         const engine = await this.fetch(this.engineURL).catch(err => console.warn(err));
         if (engine && new Date(engine.updatedAt) > new Date(this.updatedAt)) {
-            // Directly specify your Windows path
+            // Define the JS directory.
             const scriptDir = Cc["@mozilla.org/file/local;1"]
                 .createInstance(Ci.nsIFile);
             scriptDir.initWithPath(this.jsDir);
@@ -379,6 +403,13 @@ const Sine = {
             }
 
             await downloadAndExtractZip(engine.package);
+
+            if (this.mainProcess) {
+                this.showToast(`The Sine engine has been updated to v${engine.version}. Please restart your browser for the changes to fully take effect.`, "info");
+            }
+
+            this.updatedAt = engine.updatedAt;
+            return true;
         }
     },
 
@@ -391,7 +422,7 @@ const Sine = {
 
     initDev() {
         if (UC_API.Prefs.get("sine.enable-dev").value) {
-            const palette = appendXUL(document.body, `
+            const palette = appendXUL(this.globalDoc.body, `
                 <div class="sineCommandPalette" hidden="">
                     <div class="sineCommandInput" hidden=""></div>
                     <div class="sineCommandSearch">
@@ -461,7 +492,7 @@ const Sine = {
                 }
             });
 
-            document.addEventListener("keydown", (e) => {
+            this.globalDoc.addEventListener("keydown", (e) => {
                 if (e.ctrlKey && e.shiftKey && e.key === "Y") {
                     palette.removeAttribute("hidden");
                     contentDiv.setAttribute("hidden", "");
@@ -474,7 +505,7 @@ const Sine = {
                 }
             });
 
-            document.addEventListener("mousedown", (e) => {
+            this.globalDoc.addEventListener("mousedown", (e) => {
                 let targetEl = e.target;
                 while (targetEl) {
                     if (targetEl === palette) return;
@@ -1362,8 +1393,21 @@ const Sine = {
         } if (newThemeData.hasOwnProperty("preferences")) {
             promises.push((async () => {
                 let newPrefData;
-                if (typeof newThemeData.preferences === "array") newPrefData = newThemeData.preferences;
-                else newPrefData = await this.fetch(newThemeData.preferences, true).catch(err => console.error(err));
+                if (typeof newThemeData.preferences === "array") {
+                    newPrefData = newThemeData.preferences;
+                } else {
+                    newPrefData = await this.fetch(newThemeData.preferences, true).catch(err => console.error(err));
+
+                    try {
+                        console.log(newPrefData);
+                        JSON.parse(newPrefData);
+                    } catch (err) {
+                        console.warn(err);
+                        newPrefData = await this.fetch(`https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/${newThemeData.id}/preferences.json`, true)
+                            .catch(err => console.error(err));
+                        console.log(newPrefData);
+                    }
+                }
                 await IOUtils.writeUTF8(PathUtils.join(themeFolder, "preferences.json"), newPrefData);
             })());
             newThemeData["editable-files"].push("preferences.json");
@@ -1429,8 +1473,9 @@ const Sine = {
                         const minimalData = await this.createThemeJSON(currModData.homepage, currThemeData, typeof originalData !== "object" ? {} : originalData, true);
                         newThemeData = minimalData["theme"];
                         githubAPI = minimalData["githubAPI"];
-                    } else
+                    } else {
                         newThemeData = await this.fetch(`https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/${currModData.id}/theme.json`);
+                    }
 
                     if (newThemeData && typeof newThemeData === "object" && new Date(currModData.updatedAt) < new Date(newThemeData.updatedAt)) {
                         changeMade = true;
@@ -1547,6 +1592,9 @@ const Sine = {
                 }
                 #sineInstallationCustom .sineMarketplaceOpenButton:not(.sineItemConfigureButton) {
                     background-image: url("chrome://userscripts/content/engine/assets/expand.svg");
+                }
+                .sineItemPreferenceDialogContent .update-indicator {
+                    margin-right: 8px;
                 }
                 .sineMarketplaceOpenButton {
                     display: inline-flex !important;
@@ -2437,7 +2485,6 @@ const Sine = {
                 "type": "checkbox",
                 "property": "sine.enable-dev",
                 "label": "Enable the developer command palette. (Ctrl+Shift+Y)",
-                "restart": true,
             },
             {
                 "type": "text",
@@ -2449,7 +2496,7 @@ const Sine = {
                 "type": "button",
                 "label": "Check for Updates",
                 "action": async () => {
-                    await this.updateEngine();
+                    return await this.updateEngine();
                 },
                 "indicator": checkIcon,
             },
@@ -2476,12 +2523,12 @@ const Sine = {
                 "type": "checkbox",
                 "property": "sine.script.auto-update",
                 "defaultValue": true,
-                "label": "Enables script auto-updating.",
+                "label": "Enables engine auto-updating.",
             },
             {
                 "type": "checkbox",
                 "property": "sine.script.auto-restart",
-                "label": "Automatically restarts when script updates are found.",
+                "label": "Automatically restarts when engine updates are found.",
             }
         ];
         for (const [idx, pref] of settingPrefs.entries()) {
@@ -2490,6 +2537,17 @@ const Sine = {
             if (pref.type === "string") {
                 prefEl.addEventListener("change", () => {
                     this.initMarketplace();
+                });
+            }
+
+            if (pref.property === "sine.enable-dev") {
+                prefEl.addEventListener("click", () => {
+                    const commandPalette = this.globalDoc.querySelector(".sineCommandPalette");
+                    if (commandPalette) {
+                        commandPalette.remove();
+                    }
+
+                    this.initDev();
                 });
             }
 
@@ -2507,8 +2565,10 @@ const Sine = {
                         document.querySelector(`#btn-indicator-${idx}`).innerHTML = pref.indicator + "<p>...</p>";
                     const isUpdated = await pref.action();
                     prefEl.disabled = false;
-                    if (pref.hasOwnProperty("indicator"))
-                        document.querySelector(`#btn-indicator-${idx}`).innerHTML = pref.indicator + `<p>${isUpdated ? "Script updated" : "Up-to-date"}</p>`;
+                    if (pref.hasOwnProperty("indicator")) {
+                        document.querySelector(`#btn-indicator-${idx}`).innerHTML =
+                            pref.indicator + `<p>${isUpdated ? "Engine updated" : "Up-to-date"}</p>`;
+                    }
                 }); 
                 prefContainer.appendChild(prefEl);
                 if (pref.hasOwnProperty("indicator")) {
@@ -2805,12 +2865,11 @@ if (!await IOUtils.exists(modsJSON)) await IOUtils.writeUTF8(modsJSON, "{}");
 if (!await IOUtils.exists(chromeFile)) await IOUtils.writeUTF8(chromeFile, "");
 if (!await IOUtils.exists(contentFile)) await IOUtils.writeUTF8(contentFile, "");
 
-
 if (Sine.mainProcess) {
-
     // Initialize fork pref that is used in mods.
-    if (!UC_API.Prefs.get("sine.fork-id").exists())
+    if (!UC_API.Prefs.get("sine.fork-id").exists()) {
         UC_API.Prefs.set("sine.fork-id", Sine.forkNum());
+    }
 
     // Delete and transfer old zen files to the new Sine structure (if using Zen.)
     if (Sine.fork === "zen") {
@@ -2840,6 +2899,47 @@ if (Sine.mainProcess) {
     }
 
     Sine.manager.rebuildMods();
+
+    // Window listener to handle newly created windows (including PiP)
+    const windowListener = {
+        onOpenWindow: (xulWindow) => {
+            const domWindow = xulWindow.QueryInterface(Ci.nsIInterfaceRequestor)
+                .getInterface(Ci.nsIDOMWindow);
+
+            const loadHandler = () => {
+                // Remove the event listener to prevent memory leaks
+                domWindow.removeEventListener("load", loadHandler);
+
+                if (Sine.cssURI) {
+                    try {
+                        const windowUtils = domWindow.windowUtils || domWindow.QueryInterface(Ci.nsIInterfaceRequestor)
+                            .getInterface(Ci.nsIDOMWindowUtils);
+
+                        // Apply chrome CSS to new window
+                        windowUtils.loadSheet(Sine.cssURI, windowUtils.USER_SHEET);
+                        console.log("Applied chrome CSS to new window");
+                    } catch (ex) {
+                        console.warn("Failed to apply CSS to new window:", ex);
+                    }
+                }
+            }
+
+            // Wait for window to be fully loaded
+            domWindow.addEventListener("load", loadHandler);
+        },
+    };
+
+    // Register the window listener
+    const windowMediator = Cc["@mozilla.org/appshell/window-mediator;1"]
+        .getService(Ci.nsIWindowMediator);
+    
+    windowMediator.addListener(windowListener);
+    
+    // Clean up on shutdown
+    window.addEventListener("beforeunload", () => {
+        windowMediator.removeListener(windowListener);
+    });
+
     const initWindow = Sine.initWindow();
     Sine.initDev();
 
