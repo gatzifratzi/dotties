@@ -57,8 +57,16 @@ quick-terminal-autohide = true
 quick-terminal-space-behavior = move
 
 # KEYBINDINGS
+#fuer eine liste einfach 'keybinds' in ghostty tippen
+#quick terminal
 keybind = global:control+command+option+space=toggle_quick_terminal
+#tab navigation
 keybind = control+left_bracket=previous_tab
 keybind = control+right_bracket=next_tab
 keybind = control+shift+left_bracket=move_tab:-1
 keybind = control+shift+right_bracket=move_tab:1
+#split navigation
+keybind = §>h=goto_split:left
+keybind = §>j=goto_split:down
+keybind = §>k=goto_split:up
+keybind = §>l=goto_split:right
