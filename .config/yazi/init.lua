@@ -9,3 +9,6 @@ require("full-border"):setup {
 
 --  relative motions plugin --
 require("relative-motions"):setup({ show_numbers = "relative_absolute", show_motion = true, enter_mode = "cache_or_first", only_motions = false })
+
+--folder specific rules
+require("folder-rules"):setup()
