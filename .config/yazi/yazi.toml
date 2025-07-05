@@ -49,9 +49,9 @@ reveal = [
 ]
 
 extract = [
-    { run = 'unzip "$@"', desc = "Extract here", for = "macos" },
+    { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "macos" },
     { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "linux" },
-    { run = 'ya pub extract --list %*', desc = "Extract here", for = "windows" },
+    { run = 'tar -xf "$@ pub extract --list %*', desc = "Extract here", for = "windows" },
 ]
 
 zip = [{ run = 'zip -r -X "$@".zip .', desc = "zip folder", for = "macos" }]

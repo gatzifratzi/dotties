@@ -17,6 +17,7 @@
     "restore_on_startup": "last_session",
     "hour_format": "hour24",
     "soft_wrap": "bounded",
+    "lsp_document_colors": "background",
     "preferred_line_length": 100,
     "current_line_highlight": "all",
     "when_closing_with_no_tabs": "close_window",
@@ -39,13 +40,8 @@
     "theme": "Skeletor",
     "experimental.theme_overrides": {
         "background.appearance": "blurred"
-        //macht line numbers mit catpuccin blur sichtbar
-        //"editor.line_number": "#f5e0dc90",
-        //"editor.active_line_number": "#FFFFFFFF",
-        //"element.selected": null,
-        //"selection": "#FFFFFF"
     },
-    "icon_theme": "Catppuccin Mocha",
+    "icon_theme": "Catppuccin Frappé",
 
     //Fonts
     "cursor_shape": "bar",
@@ -56,10 +52,10 @@
     "buffer_font_features": {},
     "buffer_line_height": "comfortable",
 
-    //Active Pane Modifiers
+    //Active Pane Modifiers(split view)
     "active_pane_modifiers": {
-        "inactive_opacity": 0.8,
-        "border_size": 0
+        "inactive_opacity": 0.9,
+        "border_size": 1
     },
 
     //Tabs
@@ -75,6 +71,8 @@
         "show_nav_history_buttons": true
     },
 
+    //weil ich das schon 3 mal vergessen habe
+    //preview tabs sind die kursiven tabs, die sich wieder schliessen, wenn man nichts editiert oder sie per doppelklick oeffnet
     "preview_tabs": {
         "enabled": true,
         "enable_preview_from_file_finder": false,
@@ -191,25 +189,18 @@
         "show_type_hints": true,
         "show_parameter_hints": true,
         "show_other_hints": true,
-        "show_background": false,
-        "edit_debounce_ms": 400,
-        "scroll_debounce_ms": 50
+        "show_background": true,
+        "edit_debounce_ms": 0,
+        "scroll_debounce_ms": 0
     },
 
     //LSPs und Formatierung
-    "enable_language_server": true,
-    "hover_popover_enabled": true,
     "lsp_highlight_debounce": 50,
     "hover_popover_delay": 50,
-    "hard_tabs": false,
     "tab_size": 4,
-    "use_autoclose": true,
-    "use_auto_surround": true,
-    "use_on_type_format": true,
     "show_completions_on_input": true,
     "show_completion_documentation": true,
     "format_on_save": "on",
-    "remove_trailing_whitespace_on_save": true,
     "ensure_final_newline_on_save": true,
 
     "languages": {
@@ -278,6 +269,15 @@
                     "language": "de-DE"
                 }
             }
+        }
+    },
+
+    "jupyter": {
+        "kernel_selections": {
+            "python": "global-env",
+            "typescript": "deno",
+            "javascript": "deno",
+            "r": "xeus-r"
         }
     }
 }

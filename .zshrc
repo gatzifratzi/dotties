@@ -67,8 +67,8 @@ function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-	    builtin cd -- "$cwd"  #ignoriert custom 'cd' commands
-		#cd -- "$cwd" #nutzt meinen zoxide cd command, damit directories in meiner zoxide history sind
+	    #builtin cd -- "$cwd"  #ignoriert custom 'cd' commands
+		cd -- "$cwd" #nutzt meinen zoxide cd command, damit directories in meiner zoxide history sind
 	fi
 	rm -f -- "$tmp"
 }
