@@ -1,3 +1,5 @@
+~ = alle hotkeys anzeigen
+
 s = search with fd
 S = search with ripgrep (also inhalt der files)
 z = zoxide

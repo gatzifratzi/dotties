@@ -246,7 +246,7 @@
         },
         "TOML": {
             "enable_language_server": true,
-            "formatter": "prettier"
+            "formatter": "auto"
         }
     },
 
