@@ -1,3 +1,4 @@
+/* modules import */
 @import "modules/General-UI.css";
 @import "modules/Sidebar.css";
 @import "modules/Topbar-buttons.css";
@@ -12,8 +13,6 @@
 @import "modules/Animations(tabs).css";
 @import "modules/Tabfolders.css";
 @import "modules/Workspace-buttons.css";
+
+/* config import */
 @import "Nebula-config.css";
-@-moz-document url-prefix("chrome:") {
-  import */
-  @import "Nebula-config.css";
-}

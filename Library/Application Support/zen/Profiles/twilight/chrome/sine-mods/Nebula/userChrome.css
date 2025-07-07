@@ -1,6 +1,4 @@
+/* Nebula */
 @import "Nebula/Nebula.css";
-@-moz-document url-prefix("chrome:") {
-  Nebula.css";
-  
-  /* Add additional CSS below */
-}
+
+/* Add additional CSS below */
