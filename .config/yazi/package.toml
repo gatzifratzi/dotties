@@ -28,11 +28,6 @@ use = "dedukun/relative-motions"
 rev = "9d26460"
 hash = "6c0568cfa966a5d4ac496c926975a613"
 
-[[plugin.deps]]
-use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
-
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "d04a298"

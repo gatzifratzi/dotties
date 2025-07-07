@@ -65,6 +65,16 @@ playAudio = [
     { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
+# Bulk rename in nvim
+[[opener.bulk-rename]]
+run = 'nvim "$@"'
+block = true
+
+[[open.prepend_rules]]
+name = "bulk-rename.txt"
+use = "bulk-rename"
+
+
 [open]
 rules = [
     # Folder
