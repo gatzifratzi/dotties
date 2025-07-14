@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "e5f00e2"
-hash = "37ebed215c8742eada643fc2655b65e2"
+rev = "b886025"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "e5f00e2"
+rev = "b886025"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
@@ -15,22 +15,22 @@ hash = "9b8f2573da54334b04747e51556040cc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "e5f00e2"
+rev = "b886025"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "e5f00e2"
+rev = "b886025"
 hash = "f10a14e823382d90fab5b3ee54cb38fe"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "9d26460"
-hash = "6c0568cfa966a5d4ac496c926975a613"
+rev = "a603d9e"
+hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "d04a298"
+rev = "d3fd3a5"
 hash = "e6c5beeb1da3199355734273ee452a7f"
 
 [[flavor.deps]]
@@ -55,12 +55,12 @@ hash = "a04e157148549bacbb2831aab0e6e8cb"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "d04a298"
+rev = "d3fd3a5"
 hash = "a4d508772dc7b20d739a2f9a1d2d396f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "d04a298"
+rev = "d3fd3a5"
 hash = "d659c6fde5148fb5c066518d7fdecddc"
 
 [[flavor.deps]]
@@ -70,5 +70,5 @@ hash = "9b4190e2447f2c843fee23ea5f068f6"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "d04a298"
+rev = "d3fd3a5"
 hash = "288a0dedd5d13b28605cf82c05326dcd"
