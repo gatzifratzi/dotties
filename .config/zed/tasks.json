@@ -32,7 +32,7 @@
         "label": "tectonic_view",
         "command": "cd \"$ZED_DIRNAME\" && tectonic -X compile \"$ZED_FILENAME\" --synctex --untrusted --outfmt pdf && /Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW \"$ZED_STEM\".pdf",
         "allow_concurrent_runs": false,
-        "reveal": "never", //
+        "reveal": "no_focus", //
         "hide": "on_success", // Blende das Task-Panel bei Erfolg aus
         "tags": ["latex-build"] // Nützliche Tags zur Organisation
     },

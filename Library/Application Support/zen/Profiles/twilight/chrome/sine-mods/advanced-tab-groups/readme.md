@@ -8,7 +8,7 @@ CSS for Zen Browser's Tab Groups using `userChrome.css`.
 
 This project would not be possible without octaviusz, someone working on Zen folders, and the dev of the base JS (ATG uses a modified version) for the mod. Please go give him a follow and star. 
 
-_His code was used with consent, but he needs more credit. I may rename the project to include his name._
+_His code was used with consent_
 
 ## Notice
 
