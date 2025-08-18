@@ -1,4 +1,10 @@
-import appendXUL from "chrome://userscripts/content/engine/XULManager.js";
+// => engine/styles/main.js
+// ===========================================================
+// This module injects styling for Sine into the main process
+// by utilizing the XULManager script.
+// ===========================================================
+
+import appendXUL from "chrome://userscripts/content/engine/utils/XULManager.js";
 
 appendXUL(document.head, `
     <style>
@@ -68,6 +74,64 @@ appendXUL(document.head, `
                         background: rgba(255, 255, 255, 0.3);
                     }
                 }
+            }
+        }
+        .sineToastManager {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .sineToast {
+                width: auto;
+                min-width: 100px;
+                height: 30px;
+                color: black;
+                border-radius: 8px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                background: var(--zen-primary-color, rgb(190, 211, 255));
+
+                span:not(.description) {
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+
+                .description {
+                    font-size: smaller;
+                    display: block;
+                }
+
+                button {
+                    border: 1px solid rgba(0, 0, 0, 0.3);
+                    background: transparent;
+                    margin-left: 10px;
+                    color: black;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                        border-color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sineToastManager {
+                right: 5px;
+                bottom: 5px;
+            }
+
+            .sineToast {
+                min-width: 80px;
+                font-size: 13px;
             }
         }
     </style>

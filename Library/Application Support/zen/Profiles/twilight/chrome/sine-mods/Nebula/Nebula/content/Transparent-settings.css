@@ -1,12 +1,12 @@
-@-moz-document domain(monkeytype.com) {
-    body {
-      background-color: rgba(15, 15, 20, 0.4) !important; /* Darker base color */
-    }
-  }
-
   :root{
   --zen-colors-tertiary: transparent !important;
   --zen-settings-secondary-background: transparent !important;
+}
+
+/* Fixes the transparent dialogs. */
+.dialogFrame {
+  background: var(--zen-dialog-background);
+  border-radius: 8px;
 }
 
 groupbox:not(#sineInstallationGroup:popover-open){
@@ -63,3 +63,4 @@ footer{
     outline: solid 1px #88888822 !important;
   }
 }
+

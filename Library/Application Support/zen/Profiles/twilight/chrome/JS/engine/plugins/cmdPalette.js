@@ -1,13 +1,15 @@
-// => engine/cmdPalette.js
+// => engine/plugins/cmdPalette.js
 // ===========================================================
-// This module creates the developer command palette.
+// This plugin allows developers to have an easy-to-use
+// command palette for making themes.
 // ===========================================================
 
-import appendXUL from "chrome://userscripts/content/engine/XULManager.js";
+import appendXUL from "chrome://userscripts/content/engine/utils/XULManager.js";
+import manager from "chrome://userscripts/content/engine/utils/manager.js";
 
-const initDev = (Sine) => {
-    if (UC_API.Prefs.get("sine.enable-dev").value) {
-        const palette = appendXUL(Sine.globalDoc.body, `
+const initDev = () => {
+    if (Services.prefs.getBoolPref("sine.enable-dev", false)) {
+        const palette = appendXUL(ucAPI.globalDoc.body, `
             <div class="sineCommandPalette" hidden="">
                 <div class="sineCommandInput" hidden=""></div>
                 <div class="sineCommandSearch">
@@ -26,7 +28,7 @@ const initDev = (Sine) => {
         const options = [
             {
                 "label": "Refresh mod styles",
-                "action": () => Sine.manager.rebuildMods()
+                "action": () => manager.rebuildMods()
             },
         ];
     
@@ -53,8 +55,9 @@ const initDev = (Sine) => {
         
             optionBtn.addEventListener("click", () => {
                 option.action();
-                if (!option.hasOwnProperty("hide") || option.hide)
+                if (!option.hasOwnProperty("hide") || option.hide) {
                     closePalette();
+                }
             });
         }
     
@@ -79,7 +82,7 @@ const initDev = (Sine) => {
             }
         });
     
-        Sine.globalDoc.addEventListener("keydown", (e) => {
+        ucAPI.globalDoc.addEventListener("keydown", (e) => {
             if (e.ctrlKey && e.shiftKey && e.key === "Y") {
                 palette.removeAttribute("hidden");
                 contentDiv.setAttribute("hidden", "");
@@ -92,10 +95,12 @@ const initDev = (Sine) => {
             }
         });
     
-        Sine.globalDoc.addEventListener("mousedown", (e) => {
+        ucAPI.globalDoc.addEventListener("mousedown", (e) => {
             let targetEl = e.target;
             while (targetEl) {
-                if (targetEl === palette) return;
+                if (targetEl === palette) {
+                    return;
+                }
                 targetEl = targetEl.parentNode;
             }
         
