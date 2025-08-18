@@ -1,27 +1,27 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "b886025"
+rev = "e95c7b3"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "b886025"
+rev = "e95c7b3"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "orhnk/system-clipboard"
-rev = "efb8f03"
-hash = "9b8f2573da54334b04747e51556040cc"
+rev = "4f6942d"
+hash = "8e81a147e8ddfd992b10dd957d51a199"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "b886025"
+rev = "e95c7b3"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "b886025"
-hash = "f10a14e823382d90fab5b3ee54cb38fe"
+rev = "e95c7b3"
+hash = "e1de3054c0d1a2d8dc6f007eadc0fa31"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
@@ -30,8 +30,8 @@ hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "d3fd3a5"
-hash = "e6c5beeb1da3199355734273ee452a7f"
+rev = "9cd2ac4"
+hash = "bc3478e46ebfc411d611e1ccaf04d26a"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
@@ -50,25 +50,25 @@ hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
-rev = "31167ed"
-hash = "a04e157148549bacbb2831aab0e6e8cb"
+rev = "1f3b3c7"
+hash = "16ea0ff3583131788d57d5f7d34d0f61"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "d3fd3a5"
-hash = "a4d508772dc7b20d739a2f9a1d2d396f"
+rev = "9cd2ac4"
+hash = "e03f3cc1dc61e84a501134784ca4ba57"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "d3fd3a5"
-hash = "d659c6fde5148fb5c066518d7fdecddc"
+rev = "9cd2ac4"
+hash = "c769a6c541ae74b33a041ae1f00dcb40"
 
 [[flavor.deps]]
 use = "Chromium-3-Oxide/everforest-medium"
-rev = "3d5f847"
-hash = "9b4190e2447f2c843fee23ea5f068f6"
+rev = "0158f0f"
+hash = "dbbbfe681e156c28303efb1f44b6cbc4"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "d3fd3a5"
-hash = "288a0dedd5d13b28605cf82c05326dcd"
+rev = "9cd2ac4"
+hash = "f54b45bdd33f607ddde47f0afad96142"
