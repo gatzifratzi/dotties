@@ -30,5 +30,11 @@
             "ctrl-alt-f": null, //unbinded, damit macos commands fuer window management funktionieren
             "ctrl-alt-shift-f": null //unbinded, damit macos commands fuer window management funktionieren
         }
+    },
+    {
+      "context": "Workspace",
+      "bindings": {
+        "ctrl-alt-cmd-b": "git::Branch"
+      }
     }
 ]
