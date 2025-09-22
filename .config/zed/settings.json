@@ -34,10 +34,10 @@
     },
 
     //VISUELLES
-
     //Themes
-    // XY Zed ist sehr geil, Material dark, KTRZ Monokai, Kanagawa, Everforest Dark, Rosé Pine, Custom, Catpuccin blurred, Skeletor, Sandstorm (cmd-k cmd-t)
-    "theme": "Skeletor",
+    //(cmd-k cmd-t)
+    // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
+    "theme": "Sandstorm Dark",
     "experimental.theme_overrides": {
         "background.appearance": "blurred"
     },
@@ -159,7 +159,6 @@
 
     "agent": {
         "default_profile": "write",
-        "version": "2",
         "enabled": true,
         "button": true,
         "dock": "right",
