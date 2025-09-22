@@ -9,8 +9,8 @@ window-height = 25
 window-new-tab-position = current
 window-step-resize = false
 window-decoration = true
-window-position-x = 600
-window-position-y = -60
+window-position-x = 610
+window-position-y = -270
 window-save-state = never
 
 # THEME
@@ -47,7 +47,7 @@ quit-after-last-window-closed-delay = 10m
 initial-window = true
 macos-window-shadow = false
 macos-titlebar-style = tabs
-macos-window-buttons = hidden
+macos-window-buttons = visible
 macos-titlebar-proxy-icon = visible
 macos-shortcuts = allow
 
