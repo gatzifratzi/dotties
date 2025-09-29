@@ -32,9 +32,9 @@
         }
     },
     {
-      "context": "Workspace",
-      "bindings": {
-        "ctrl-alt-cmd-b": "git::Branch"
-      }
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-alt-cmd-b": "git::Branch"
+        }
     }
 ]
