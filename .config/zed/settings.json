@@ -49,8 +49,8 @@
     "ui_font_family": "Monocraft", //MonospiceKr
     "buffer_font_size": 18,
     "buffer_font_family": "MonaspiceKr Nerd Font", //MonospiceAr
-    "buffer_font_features": {},
     "buffer_line_height": "comfortable",
+    "buffer_font_features": {}, //das sind die ligatures und so
 
     //Active Pane Modifiers(split view)
     "active_pane_modifiers": {
