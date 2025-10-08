@@ -2,12 +2,12 @@
 
 ### sachen für dock:
 
-`defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`
-`defaults write com.apple.dock autohide-delay -float 0; killall Dock`
+- `defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`
+- `defaults write com.apple.dock autohide-delay -float 0; killall Dock`
 
 ### macht die scheiss .\_\* files weg: (funktioniert nicht ich bin sauer)
 
-`defaults write com.apple.desktopservices DSDontWriteNetworkStores true`
+- `defaults write com.apple.desktopservices DSDontWriteNetworkStores true`
 
 # coole fonts:
 
