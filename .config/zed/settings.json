@@ -50,7 +50,11 @@
     "buffer_font_size": 18,
     "buffer_font_family": "Monaspace Krypton", //Monospace Argon
     "buffer_line_height": "comfortable",
-    "buffer_font_features": {}, //das sind die ligatures und so
+    "buffer_font_features": {
+        //das sind die ligatures und so
+        "calt": true,
+        "liga": true
+    },
 
     //Active Pane Modifiers(split view)
     "active_pane_modifiers": {
@@ -150,7 +154,7 @@
         "blinking": "terminal_controlled",
         "copy_on_select": false,
         "env": {},
-        "font_family": "MonaspiceKr Nerd Font Mono",
+        "font_family": "Miracode",
         "font_size": 16,
         "option_as_meta": false,
         "shell": "system",
