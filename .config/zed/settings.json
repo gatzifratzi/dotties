@@ -17,14 +17,12 @@
     "restore_on_startup": "last_session",
     "hour_format": "hour24",
     "soft_wrap": "bounded",
+    "preferred_line_length": 110,
     "lsp_document_colors": "background",
-    "preferred_line_length": 100,
     "current_line_highlight": "all",
     "when_closing_with_no_tabs": "close_window",
+    "use_system_prompts": false,
     "use_system_path_prompts": false,
-    "diagnostics": {
-        "include_warnings": true
-    },
     "scrollbar": {
         "show": "auto",
         "axes": {
@@ -32,28 +30,53 @@
             "vertical": true
         }
     },
+    "minimap": {
+        "show": "never"
+    },
+    "features": {
+        "edit_prediction_provider": "none" //durch 'none' deaktiviert
+    },
+    //Diagnostics (Inline)
+    "diagnostics": {
+        "include_warnings": true,
+        "inline": {
+            "enabled": true,
+            "min_column": 80
+        }
+    },
+    "repl": {
+        "max_columns": 128,
+        "max_lines": 32
+    },
 
     //VISUELLES
-    //Themes
-    //(cmd-k cmd-t)
+    // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
-    "theme": "Sandstorm Dark",
+    "theme": "Gruvbox Dark Hard",
     "experimental.theme_overrides": {
         "background.appearance": "blurred"
     },
     "icon_theme": "Catppuccin Frappé",
+    "unnecessary_code_fade": 0.25,
 
     //Fonts
     "cursor_shape": "bar",
     "ui_font_size": 17,
     "ui_font_family": "Monocraft", //Monospice Krypton
     "buffer_font_size": 18,
+    "buffer_font_weight": 500, // default 400
     "buffer_font_family": "Monaspace Krypton", //Monospace Argon
     "buffer_line_height": "comfortable",
     "buffer_font_features": {
         //das sind die ligatures und so
-        "calt": true,
-        "liga": true
+        "calt": false,
+        "liga": true,
+        "ss01": true,
+        "ss03": true,
+        "ss06": true,
+        "ss08": true,
+        "ss09": true,
+        "ss10": true
     },
 
     //Active Pane Modifiers(split view)
@@ -66,13 +89,7 @@
     "tabs": {
         "close_position": "right",
         "file_icons": true,
-        "git_status": true,
-        "activate_on_close": "history"
-    },
-
-    "tab_bar": {
-        "show": true,
-        "show_nav_history_buttons": true
+        "git_status": true
     },
 
     //weil ich das schon 3 mal vergessen habe
@@ -83,14 +100,25 @@
         "enable_preview_from_code_navigation": false
     },
 
+    //Editor Toolbar
+    "toolbar": {
+        "code_actions": true
+    },
+
     //Git
     "git": {
         "git_gutter": "tracked_files",
         "hunk_style": "staged_hollow",
+        "branch_picker": {
+            "show_author_name": true
+        },
         "inline_blame": {
             "enabled": true,
             "show_commit_summary": true,
-            "delay_ms": 0
+            "padding": 8
+        },
+        "blame": {
+            "show_avatar": true
         }
     },
 
@@ -98,14 +126,14 @@
     //Project Panel
     "project_panel": {
         "button": true,
-        "default_width": 150,
+        "default_width": 128,
         "dock": "left",
         "entry_spacing": "comfortable",
         "file_icons": true,
         "folder_icons": true,
         "git_status": true,
         "show_diagnostics": "errors",
-        "indent_size": 15,
+        "indent_size": 16,
         "indent_guides": {
             "show": "always"
         },
@@ -115,12 +143,12 @@
 
     "outline_panel": {
         "button": true,
-        "default_width": 250,
+        "default_width": 256,
         "dock": "left",
         "file_icons": true,
         "folder_icons": true,
         "git_status": true,
-        "indent_size": 15,
+        "indent_size": 16,
         "auto_reveal_entries": true,
         "auto_fold_dirs": true,
         "indent_guides": {
@@ -130,7 +158,7 @@
     "git_panel": {
         "status_style": "icon",
         "dock": "left",
-        "default_width": 250
+        "default_width": 256
     },
 
     "collaboration_panel": {
@@ -139,7 +167,12 @@
     },
     "chat_panel": {
         "dock": "right",
-        "button": "never"
+        "button": "always"
+    },
+    "debugger": {
+        "dock": "right",
+        "button": true,
+        "save_breakpoints": true
     },
     "notification_panel": {
         "dock": "right",
@@ -154,13 +187,14 @@
         "blinking": "terminal_controlled",
         "copy_on_select": false,
         "env": {},
-        "font_family": "Miracode",
-        "font_size": 16,
+        "font_family": "Monaspace Krypton",
+        "font_size": 17,
         "option_as_meta": false,
         "shell": "system",
-        "working_directory": "current_project_directory"
+        "working_directory": "current_project_directory",
+        "minimum_contrast": 30
     },
-
+    // KI Agent
     "agent": {
         "default_profile": "write",
         "enabled": true,
@@ -170,21 +204,18 @@
         "default_height": 320,
         "default_model": {
             "provider": "google",
-            "model": "gemini-2.5-flash"
+            "model": "gemini-2.5-flash-lite-preview"
         }
     },
     "edit_predictions": {
-        "disabled_globs": [],
+        "disabled_globs": null,
+        "disabled_in": ["comment", "string"], //keine predicitons in kommentaren und strings.
         "mode": "subtle",
         "copilot": {
             "proxy": null,
             "proxy_no_verify": null
         },
         "enabled_in_text_threads": false
-    },
-
-    "features": {
-        "edit_prediction_provider": "zed"
     },
 
     "inlay_hints": {
@@ -199,12 +230,8 @@
 
     //LSPs und Formatierung
     "lsp_highlight_debounce": 50,
-    "hover_popover_delay": 50,
+    "hover_popover_delay": 80,
     "tab_size": 4,
-    "show_completions_on_input": true,
-    "show_completion_documentation": true,
-    "format_on_save": "on",
-    "ensure_final_newline_on_save": true,
 
     "languages": {
         "Haskell": {
