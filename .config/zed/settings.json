@@ -62,10 +62,10 @@
     //Fonts
     "cursor_shape": "bar",
     "ui_font_size": 17,
-    "ui_font_family": "Monocraft", //Monospice Krypton
+    "ui_font_family": "Monocraft Nerd Font", //Monaspace Krypton NFM
     "buffer_font_size": 18,
     "buffer_font_weight": 500, // default 400
-    "buffer_font_family": "Monaspace Krypton", //Monospace Argon
+    "buffer_font_family": "Monaspace Krypton NF", //Monaspace Argon NF
     "buffer_line_height": "comfortable",
     "buffer_font_features": {
         //das sind die ligatures und so
@@ -187,7 +187,7 @@
         "blinking": "terminal_controlled",
         "copy_on_select": false,
         "env": {},
-        "font_family": "Monaspace Krypton",
+        "font_family": "Monaspace Krypton NF",
         "font_size": 17,
         "option_as_meta": false,
         "shell": "system",
