@@ -204,7 +204,7 @@
         "default_height": 320,
         "default_model": {
             "provider": "google",
-            "model": "gemini-2.5-flash-lite-preview"
+            "model": "gemini-2.5-flash"
         }
     },
     "edit_predictions": {

@@ -1,0 +1,3 @@
+.zen-essentials-container {
+  grid-template-columns: repeat(auto-fit, minmax(80px)) !important;
+}
