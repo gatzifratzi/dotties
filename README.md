@@ -11,9 +11,13 @@
 
 # coole fonts:
 
-- [Monaspace](https://monaspace.githubnext.com/) die beste font family die ich je gefunden habe `brew install --cask font-monaspace-nf`
-- [Monocraft](https://github.com/IdreesInc/Monocraft) Minecraft font lol `brew install --cask font-monocraft-nerd-font`
-- [Miracode](https://github.com/IdreesInc/Miracode) wie Monocraft nur nicht pixelig `brew install --cask font-miracode`
+- [Monaspace](https://monaspace.githubnext.com/) die beste font family die ich je gefunden habe
+    - `brew install --cask font-monaspace-nf`
+- [Monocraft](https://github.com/IdreesInc/Monocraft) Minecraft font lol
+    - `brew install --cask font-monocraft-nerd-font`
+    - `brew install --cask font-monocraft` nicht nerd font fuer zen
+- [Miracode](https://github.com/IdreesInc/Miracode) wie Monocraft nur nicht pixelig
+    - `brew install --cask font-miracode`
 
 # Homebrew sachen
 
