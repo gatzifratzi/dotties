@@ -1,3 +1,5 @@
+/* WireFrame Costom Font */
+
 @media (-moz-pref("wireframe.font", "monocraft")) {
     :root {
         --wireframe-font: "monocraft";
@@ -15,3 +17,5 @@
     font-weight: var(--wireframe-font_weight) !important;
     font-family: var(--wireframe-font);
 }
+
+/* Hier mal Code einfuegen, der die Essentials auf 3 pro Reihe begrenzt */
