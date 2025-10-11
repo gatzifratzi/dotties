@@ -15,13 +15,7 @@
             "cmd-ctrl-b": ["task::Spawn", { "task_name": "tectonic_view" }]
         }
     },
-
-    {
-        "context": "Workspace",
-        "bindings": {
-            // "shift shift": "file_finder::Toggle"
-        }
-    },
+    // --- UNBINDS FUER MACOS WM ---
     {
         "context": "Editor",
         "bindings": {
@@ -31,10 +25,80 @@
             "ctrl-alt-shift-f": null //unbinded, damit macos commands fuer window management funktionieren
         }
     },
+
     {
         "context": "Workspace",
         "bindings": {
             "ctrl-alt-cmd-b": "git::Branch"
+        }
+    },
+
+    // --- PANES ---
+    {
+        "context": "Workspace",
+        "bindings": {
+            "alt-t": "pane::SplitRight",
+            "alt-shift-t": "pane::SplitDown",
+            "alt-l": "workspace::ActivatePaneRight",
+            "alt-k": "workspace::ActivatePaneUp",
+            "alt-j": "workspace::ActivatePaneDown",
+            "alt-h": "workspace::ActivatePaneLeft",
+            "alt-shift-l": "workspace::SwapPaneRight",
+            "alt-shift-k": "workspace::SwapPaneUp",
+            "alt-shift-j": "workspace::SwapPaneDown",
+            "alt-shift-h": "workspace::SwapPaneLeft",
+            "alt-1": ["workspace::ActivatePane", 0],
+            "alt-2": ["workspace::ActivatePane", 1],
+            "alt-3": ["workspace::ActivatePane", 2],
+            "alt-4": ["workspace::ActivatePane", 3],
+            "alt-5": ["workspace::ActivatePane", 4],
+            "alt-6": ["workspace::ActivatePane", 5],
+            "alt-7": ["workspace::ActivatePane", 6],
+            "alt-8": ["workspace::ActivatePane", 7],
+            "alt-9": ["workspace::ActivatePane", 8]
+        }
+    },
+
+    /// --- TAB Switching ---
+    {
+        "context": "Pane",
+        "bindings": {
+            "cmd-1": ["pane::ActivateItem", 0],
+            "cmd-2": ["pane::ActivateItem", 1],
+            "cmd-3": ["pane::ActivateItem", 2],
+            "cmd-4": ["pane::ActivateItem", 3],
+            "cmd-5": ["pane::ActivateItem", 4],
+            "cmd-6": ["pane::ActivateItem", 5],
+            "cmd-7": ["pane::ActivateItem", 6],
+            "cmd-8": ["pane::ActivateItem", 7],
+            "cmd-9": ["pane::ActivateItem", 8],
+            "alt-]": "pane::ActivateNextItem",
+            "alt-[": "pane::ActivatePreviousItem",
+            "alt-{": "pane::SwapItemLeft",
+            "alt-}": "pane::SwapItemRight"
+        }
+    },
+
+    // --- NAVIGATION ---
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-shift-e": "workspace::ToggleLeftDock",
+            "cmd-e": "project_panel::ToggleFocus",
+            "cmd-b": "outline_panel::ToggleFocus",
+            "cmd-shift-b": "git_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "(Editor && mode == full)",
+        "bindings": {
+            "cmd-e": "project_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "AgentPanel",
+        "bindings": {
+            "cmd-e": "project_panel::ToggleFocus"
         }
     }
 ]

@@ -52,7 +52,7 @@
     //VISUELLES
     // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
-    "theme": "Gruvbox Dark",
+    "theme": "Gruvbox Baby",
     "experimental.theme_overrides": {
         "background.appearance": "blurred"
     },
