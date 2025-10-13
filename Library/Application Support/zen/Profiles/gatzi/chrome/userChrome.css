@@ -20,12 +20,11 @@
 /* Wireframe Url Bar */
 #urlbar {
     min-height: 40px !important;
-    font-size: 15px;
 }
 
-#urlbar input { /* Target the actual input field within the urlbar */
-    font-size: 20px !important;
-    padding-top: 11px !important; /* Adjust padding to center text vertically: (40px min-height - 18px font-size) / 2 = 11px */
+#urlbar input {
+    font-size: 17px !important;
+    padding-top: 11px !important;
     padding-bottom: 11px !important;
-    line-height: 15px !important; /* Ensure line-height matches font-size for better control */
-}
+    line-height: 17px !important;
+    }

@@ -98,7 +98,7 @@ prepend_keymap = [
     { on = [
         "g",
         "s",
-    ], run = "cd ~/Developer/4SoSe25", desc = "goto Semeseter" },
+    ], run = "cd ~/Developer/5WiSe25", desc = "goto Semeseter" },
     { on = [
         "g",
         "v",
