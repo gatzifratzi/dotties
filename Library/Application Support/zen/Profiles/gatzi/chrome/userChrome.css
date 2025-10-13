@@ -28,3 +28,9 @@
     padding-bottom: 11px !important;
     line-height: 17px !important;
     }
+
+/* dimm unloaded tabs*/
+.tab-icon-image[pending="true"],
+.tabbrowser-tab[pending="true"] .tab-text {
+    opacity: 0.5 !important;
+}
