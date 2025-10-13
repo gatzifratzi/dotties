@@ -1,5 +1,4 @@
 /* WireFrame Costom Font */
-
 @media (-moz-pref("wireframe.font", "monocraft")) {
     :root {
         --wireframe-font: "monocraft";
@@ -18,10 +17,15 @@
     font-family: var(--wireframe-font);
 }
 
-/* Hier mal Code einfuegen, der die Essentials auf 3 pro Reihe begrenzt */
+/* Wireframe Url Bar */
+#urlbar {
+    min-height: 40px !important;
+    font-size: 15px;
+}
+
 #urlbar input { /* Target the actual input field within the urlbar */
-    font-size: 14px !important;
+    font-size: 20px !important;
     padding-top: 11px !important; /* Adjust padding to center text vertically: (40px min-height - 18px font-size) / 2 = 11px */
     padding-bottom: 11px !important;
-    line-height: 14px !important; /* Ensure line-height matches font-size for better control */
+    line-height: 15px !important; /* Ensure line-height matches font-size for better control */
 }

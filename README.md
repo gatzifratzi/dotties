@@ -64,3 +64,8 @@
 - Whatsapp
 - Maccy (maybe obsolete mit Macos26)
 - Goodnotes
+
+# Zed Keybinds die man leicht vergisst
+- `shift-esc` vollbild
+- `cmd-/` toggled comment fuer aktuelles file
+- meine keymap hoehoe

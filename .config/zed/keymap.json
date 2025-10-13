@@ -37,8 +37,8 @@
     {
         "context": "Workspace",
         "bindings": {
-            "alt-t": "pane::SplitRight",
-            "alt-shift-t": "pane::SplitDown",
+            "alt-n": "pane::SplitRight",
+            "alt-shift-n": "pane::SplitDown",
             "alt-l": "workspace::ActivatePaneRight",
             "alt-k": "workspace::ActivatePaneUp",
             "alt-j": "workspace::ActivatePaneDown",
@@ -99,6 +99,14 @@
         "context": "AgentPanel",
         "bindings": {
             "cmd-e": "project_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "alt-r": "agent::ToggleFocus",
+            "alt-y": "collab_panel::ToggleFocus",
+            "alt-t": "terminal_panel::Toggle"
         }
     }
 ]
