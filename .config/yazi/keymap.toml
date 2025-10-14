@@ -3,7 +3,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
-
 prepend_keymap = [
     # PLUGINS
     # Mount Plugin
@@ -20,8 +19,8 @@ prepend_keymap = [
     #system-clipboard Plugin
     { on = [
         "c",
-        "y",
-    ], run = "plugin system-clipboard", desc = "yank to clipboard" },
+        "c",
+    ], run = "plugin system-clipboard", desc = "copy file to system" },
     #Plugin relative-motions (gt bei tabs) (https://github.com/dedukun/relative-motions.yazi)
     { on = "1", run = "plugin relative-motions 1", desc = "Move in relative steps" },
     { on = "2", run = "plugin relative-motions 2", desc = "Move in relative steps" },
@@ -46,69 +45,63 @@ prepend_keymap = [
     # Operation
     { on = "o", run = "open --interactive", desc = "Open selected files interactively" },
     { on = "O", run = "open", desc = "Open selected files" },
-    { on = [
-        "g",
-        "<Space>",
-    ], run = "plugin zoxide", desc = "zoxide (dir)" },
-    { on = [
-        "g",
-        "f",
-    ], run = "plugin fzf", desc = "fzf (file and dir)" },
 
     # Copy
     { on = [
         "c",
-        "c",
-    ], run = 'osascript -e "set the clipboard to (POSIX file \"$PWD/$1\")"', desc = "Copy path" },
+        "p",
+    ], run = "copy path", desc = "path hovered" },
     { on = [
         "c",
-        "s",
-    ], run = "copy path", desc = "Copy path as string" },
-    { on = [
-        "c",
-        "d",
-    ], run = "copy dirname", desc = "Copy dir path" },
+        "<S-p>",
+    ], run = "copy dirname", desc = "path current" },
     { on = [
         "c",
         "f",
-    ], run = "copy filename", desc = "Copy name" },
+    ], run = "copy filename", desc = "filename" },
     { on = [
         "c",
-        "n",
+        "<S-f>",
     ], run = "copy name_without_ext", desc = "name w/o extension" },
+    {on = [
+    "c",
+    "d",
+    ], run = 'shell -- zed --diff "$1" "$0"', desc = "diff with zed"},
 
 
     # Goto
+    # g-r bringt einen ins root vom git rep
+    { on = [
+        "g",
+        "r",
+    ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "root git" },
+
     { on = [
         "g",
         "h",
-    ], run = "cd ~", desc = "goto Home" },
+    ], run = "cd ~", desc = "Home" },
     { on = [
         "g",
         "c",
-    ], run = "cd ~/dotties", desc = "goto dotfiles" },
+    ], run = "cd ~/dotties", desc = "dotfiles" },
     { on = [
         "g",
         "d",
-    ], run = "cd ~/Downloads", desc = "goto Downloads" },
-    { on = [
-        "g",
-        "i",
-    ], run = "cd --interactive", desc = "Jump interactively" },
+    ], run = "cd ~/Downloads", desc = "Downloads" },
     { on = [
         "g",
         "s",
-    ], run = "cd ~/Developer/5WiSe25", desc = "goto Semeseter" },
+    ], run = "cd ~/Developer/5WiSe25", desc = "Semeseter" },
     { on = [
         "g",
         "v",
-    ], run = "cd /Volumes", desc = "goto Volumes" },
+    ], run = "cd /Volumes", desc = "Volumes" },
     { on = [
         "g",
         "m",
-    ], run = "cd ~/Movies", desc = "goto Movies" },
+    ], run = "cd ~/Movies", desc = "Movies" },
     { on = [
         "g",
         "p",
-    ], run = "cd ~/Pictures", desc = "goto Pictures" },
+    ], run = "cd ~/Pictures", desc = "Pictures" },
 ]

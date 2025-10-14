@@ -1,4 +1,4 @@
-/* WireFrame Costom Font */
+/* WireFrame Costom Font (ändert die hauptfont von zen und funktioniert auch ohne wireframe)*/
 @media (-moz-pref("wireframe.font", "monocraft")) {
     :root {
         --wireframe-font: "monocraft";
@@ -12,6 +12,7 @@
     font-style: normal;
 }
 
+/*font-family ist die globale zen interface font*/
 * {
     font-weight: var(--wireframe-font_weight) !important;
     font-family: var(--wireframe-font);

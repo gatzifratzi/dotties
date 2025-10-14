@@ -1,49 +1,27 @@
 // Static tasks configuration.
 [
     //Latex Task
-    {
-        "label": "tectonic",
-        "command": "tectonic",
-        "args": [
-            "-X",
-            "compile",
-            "$ZED_FILENAME",
-            "--synctex",
-            "--untrusted",
-            // "--keep-logs",
-            "--outfmt",
-            "pdf"
-        ],
-        "cwd": "$ZED_DIRNAME",
-        "tags": ["latex-build"]
-    },
-
-    // für preview in skim
-    {
-        "label": "forward_search",
-        "command": "/Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW $ZED_DIRNAME/$ZED_STEM.pdf",
-        "allow_concurrent_runs": false,
-        "reveal": "never",
-        "hide": "always",
-        "tags": ["latex-build"]
-    },
     // Task to compile with Tectonic and then view in Skim
+    // neu compilen und in skim angucken
     {
-        "label": "tectonic_view",
+        "label": "tectonic_skim",
         "command": "cd \"$ZED_DIRNAME\" && tectonic -X compile \"$ZED_FILENAME\" --synctex --untrusted --outfmt pdf && /Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW \"$ZED_STEM\".pdf",
         "allow_concurrent_runs": false,
         "reveal": "no_focus", //
         "hide": "on_success", // Blende das Task-Panel bei Erfolg aus
         "tags": ["latex-build"] // Nützliche Tags zur Organisation
     },
+    // für preview in skim
+    // nur in skim angucken und nicht neu compilen
+    {
+        "label": "forward_search_skim",
+        "command": "/Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW $ZED_DIRNAME/$ZED_STEM.pdf",
+        "allow_concurrent_runs": false,
+        "reveal": "no_focus",
+        "hide": "on_success",
+        "tags": ["latex-build"]
+    },
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     // ---TASKS FUER R REPL --
     //
     {
@@ -102,10 +80,7 @@
         // or clicking on the run button, by toggling the code action menu (Ctrl+.)
         "command": "Rscript",
         "cwd": "$ZED_WORKTREE_ROOT",
-        "args": [
-            "-e",
-            "\"testthat::test_file(\\\"${ZED_FILE}\\\", desc = \\\"${ZED_CUSTOM_desc}\\\")\""
-        ],
+        "args": ["-e", "\"testthat::test_file(\\\"${ZED_FILE}\\\", desc = \\\"${ZED_CUSTOM_desc}\\\")\""],
         "tags": ["r-test"]
     },
     {

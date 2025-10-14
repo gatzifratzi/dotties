@@ -11,8 +11,8 @@
         //"context": "Workspace",
         "context": "Editor && extension==tex", // This restricts the keybindings to tex files however does not work when in terminal
         "bindings": {
-            "cmd-ctrl-v": ["task::Spawn", { "task_name": "forward_search" }],
-            "cmd-ctrl-b": ["task::Spawn", { "task_name": "tectonic_view" }]
+            "cmd-ctrl-v": ["task::Spawn", { "task_name": "forward_search_skim" }],
+            "cmd-ctrl-b": ["task::Spawn", { "task_name": "tectonic_skim" }]
         }
     },
     // --- UNBINDS FUER MACOS WM ---

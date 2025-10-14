@@ -23,7 +23,6 @@
 # Homebrew sachen
 
 ## Casks
-
 - ghostty
 - google-drive
 - iina
@@ -42,7 +41,6 @@
 - (unnaturalscrollwheel)
 
 ## formulae
-
 - stow
 - yazi
 - zoxide
@@ -53,14 +51,15 @@
 - neovim
 - bat
 - pyenv
+- openjdk
 - tectonic
 - fd
 - ffmpeg
 - r
+- clipboard (yazi plugin)
 - (tesseract)(vielleicht dependencie von nem programm oder fuer zed oder so ich weiss es nicht und ich finde es nicht mehr heraus)
 
 # MacStore Sachen
-
 - Xcode
 - Whatsapp
 - Maccy (maybe obsolete mit Macos26)
