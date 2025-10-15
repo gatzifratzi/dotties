@@ -29,41 +29,6 @@ rev = "a603d9e"
 hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[flavor.deps]]
-use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "2d73b79"
-hash = "86f1eb7e792533c80b34cdff4e191f41"
-
-[[flavor.deps]]
-use = "kmlupreti/ayu-dark"
-rev = "648a178"
-hash = "1a8af82f6246942bd700316a16c4e14a"
-
-[[flavor.deps]]
-use = "PinThePenguine/sunset"
-rev = "64ad82e"
-hash = "ae36775ed414cad1bcd7af692422df0f"
-
-[[flavor.deps]]
-use = "marcosvnmelo/kanagawa-dragon"
-rev = "4905527"
-hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"
-
-[[flavor.deps]]
-use = "dangooddd/kanagawa"
-rev = "a0b1d9d"
-hash = "abfb0b2371259b2c8adfc7b617c3d7e5"
-
-[[flavor.deps]]
-use = "yazi-rs/flavors:catppuccin-latte"
-rev = "2d73b79"
-hash = "9e789c612c34f941a2afd42e7ded39f"
-
-[[flavor.deps]]
-use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "2d73b79"
-hash = "ca94f5dc2b87919439b5be2a62cf4871"
-
-[[flavor.deps]]
 use = "Chromium-3-Oxide/everforest-medium"
 rev = "0158f0f"
 hash = "dbbbfe681e156c28303efb1f44b6cbc4"
@@ -72,3 +37,8 @@ hash = "dbbbfe681e156c28303efb1f44b6cbc4"
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "2d73b79"
 hash = "d4c41d713b325710a9dd5ae86c3f8a5f"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "2d73b79"
+hash = "fc6944561718351d70cffde75839211f"

@@ -50,11 +50,11 @@ prepend_keymap = [
     { on = [
         "c",
         "p",
-    ], run = "copy path", desc = "path hovered" },
+    ], run = "copy path", desc = "filepath" },
     { on = [
         "c",
         "<S-p>",
-    ], run = "copy dirname", desc = "path current" },
+    ], run = "copy dirname", desc = "dirpath" },
     { on = [
         "c",
         "f",
@@ -67,7 +67,6 @@ prepend_keymap = [
     "c",
     "d",
     ], run = 'shell -- zed --diff "$1" "$0"', desc = "diff with zed"},
-
 
     # Goto
     # g-r bringt einen ins root vom git rep
