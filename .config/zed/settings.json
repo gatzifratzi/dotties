@@ -18,6 +18,7 @@
     "hour_format": "hour24",
     "soft_wrap": "bounded",
     "preferred_line_length": 110,
+    "show_wrap_guides": true,
     "lsp_document_colors": "background",
     "current_line_highlight": "all",
     "when_closing_with_no_tabs": "close_window",
@@ -103,6 +104,12 @@
     //Editor Toolbar
     "toolbar": {
         "code_actions": true
+    },
+
+    //titlebar
+    "title_bar": {
+        "show_menus": false,
+        "show_branch_icon": true
     },
 
     //Git
