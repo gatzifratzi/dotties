@@ -64,8 +64,8 @@
     "ui_font_size": 17,
     "ui_font_family": "Monocraft Nerd Font", //Monaspace Krypton NFM
     "buffer_font_size": 18,
-    "buffer_font_weight": 500, // default 400
-    "buffer_font_family": "JakobsKrypton", //Monaspace Argon NF
+    "buffer_font_weight": 500, // default 400, fuer monaspacefonts 500, fuer meine monaspace 550
+    "buffer_font_family": "jakobsKrypton", //Monaspace Argon NF
     "buffer_line_height": "comfortable",
     "buffer_font_features": {
         //das sind die ligatures und so
