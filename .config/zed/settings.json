@@ -54,19 +54,18 @@
     // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
     "theme": "Gruvbox Baby",
-    "experimental.theme_overrides": {
-        "background.appearance": "blurred"
-    },
     "icon_theme": "Catppuccin Frappé",
     "unnecessary_code_fade": 0.25,
 
     //Fonts
     "cursor_shape": "bar",
+    "agent_ui_font_size": 17,
+    "agent_buffer_font_size": 18,
     "ui_font_size": 17,
     "ui_font_family": "Monocraft Nerd Font", //Monaspace Krypton NFM
     "buffer_font_size": 18,
     "buffer_font_weight": 500, // default 400
-    "buffer_font_family": "Monaspace Krypton NF", //Monaspace Argon NF
+    "buffer_font_family": "JakobsKrypton", //Monaspace Argon NF
     "buffer_line_height": "comfortable",
     "buffer_font_features": {
         //das sind die ligatures und so
@@ -78,6 +77,14 @@
         "ss08": true,
         "ss09": true,
         "ss10": true
+    },
+    //comments italic machen (ich wuerde fuer comments sehr gerne eine andere schriftart nutzen, aber das geht nicht)(habe fonts als workaround gemerged)
+    "experimental.theme_overrides": {
+        "syntax": {
+            "comment": {
+                "font_style": "italic"
+            }
+        }
     },
 
     //Active Pane Modifiers(split view)

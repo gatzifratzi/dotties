@@ -10,6 +10,7 @@
     src: local("Monocraft") !important;
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
+    /*font-size: 15px;*/
 }
 
 /*font-family ist die globale zen interface font*/

@@ -57,6 +57,7 @@
 - ffmpeg
 - r
 - clipboard (yazi plugin)
+- fontforge
 - (tesseract)(vielleicht dependencie von nem programm oder fuer zed oder so ich weiss es nicht und ich finde es nicht mehr heraus)
 
 # MacStore Sachen
