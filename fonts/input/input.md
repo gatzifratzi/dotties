@@ -3,3 +3,6 @@ in diesen Ordner kommend 4 Fonts im .otf format. Diese sind nach dem stil benann
 - italic.otf
 - bold.otf
 - boldItalic.otf
+
+Der Name, den die neue Font bekommen soll, muss im skript angepasst werden.
+Der fontforge command ist `fontforge -script merge_fonts.py`
