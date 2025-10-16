@@ -23,9 +23,6 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# --- java ---
-# echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"'
-
 # --- plugins ---
 fpath=(/opt/homebrew/share/zsh-completions/ $fpath) # ich verstehe dieses plugin nicht
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
