@@ -1,10 +1,10 @@
 # FONT
 font-family = Monaspace Krypton NF
-font-style = semibold
+font-style = medium
 font-family-bold = Monocraft Nerd Font
 font-style-bold = semibold
 font-family-italic = Monaspace Radon NF
-font-style-italic = semibold
+font-style-italic = medium
 font-style-bold-italic = extrabold italic
 font-size = 17
 font-shaping-break = cursor
