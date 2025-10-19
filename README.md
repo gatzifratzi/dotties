@@ -38,6 +38,7 @@
 - transmission
 - zed
 - zen
+- btop
 - (unnaturalscrollwheel)
 
 ## formulae

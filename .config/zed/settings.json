@@ -53,8 +53,8 @@
     //VISUELLES
     // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
-    "theme": "Gruvbox Baby",
-    "icon_theme": "Catppuccin Frappé",
+    "theme": "Serendipity Midnight",
+    "icon_theme": "Serendipity Icons",
     "unnecessary_code_fade": 0.25,
 
     //Fonts
