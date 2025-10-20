@@ -61,12 +61,16 @@ prepend_keymap = [
     ], run = "copy filename", desc = "filename" },
     { on = [
         "c",
-        "<S-f>",
+        "n",
     ], run = "copy name_without_ext", desc = "name w/o extension" },
     {on = [
     "c",
     "d",
     ], run = 'shell -- zed --diff "$1" "$0"', desc = "diff with zed"},
+    {on = [
+    "c",
+    "<S-c>"
+    ], run = 'shell -- cat "$0" | pbcopy', desc = "copy content"},
 
     # Goto
     # g-r bringt einen ins root vom git rep

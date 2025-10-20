@@ -21,17 +21,7 @@ _darcs
 /COPYING
 /README.md
 
+# der font folder
+/fonts
+
 .DS_Store
-
-
-#fucking zen browser chromecss git repo
-# Ignore specific files
-/Library/Application Support/zen/Profiles/twilight/chrome/bento.json
-/Library/Application Support/zen/Profiles/twilight/chrome/README.md
-/Library/Application Support/zen/Profiles/twilight/chrome/LICENSE
-/Library/Application Support/zen/Profiles/twilight/chrome/.gitignore
-
-# Ignore directories
-/Library/Application Support/zen/Profiles/twilight/chrome/.git
-/Library/Application Support/zen/Profiles/twilight/chrome/.github
-/Library/Application Support/zen/Profiles/twilight/chrome/images

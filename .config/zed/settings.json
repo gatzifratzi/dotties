@@ -1,3 +1,7 @@
+// Extension:
+// themes: Zedokai, Blade Runner, Rose Pine, Kanagawa, Serendipity, Gruvbox baby
+// icons: catpuccin, material, colored zed, serendipity
+//
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -53,8 +57,8 @@
     //VISUELLES
     // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
-    "theme": "Serendipity Midnight",
-    "icon_theme": "Serendipity Icons",
+    "theme": "Kanagawa Dragon",
+    "icon_theme": "Catppuccin Macchiato",
     "unnecessary_code_fade": 0.25,
 
     //Fonts
