@@ -297,6 +297,7 @@
     },
 
     "lsp": {
+        //latex extension keine build on save
         "texlab": {
             "settings": {
                 "texlab": {

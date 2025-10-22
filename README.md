@@ -38,7 +38,6 @@
 - transmission
 - zed
 - zen
-- btop
 - (unnaturalscrollwheel)
 
 ## formulae
@@ -57,6 +56,7 @@
 - fd
 - ffmpeg
 - r
+- btop
 - clipboard (yazi plugin)
 - fontforge
 - (tesseract)(vielleicht dependencie von nem programm oder fuer zed oder so ich weiss es nicht und ich finde es nicht mehr heraus)
