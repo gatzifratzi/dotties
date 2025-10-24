@@ -5,7 +5,7 @@
     // neu compilen und in skim angucken
     {
         "label": "tectonic_skim",
-        "command": "cd \"$ZED_DIRNAME\" && tectonic -X compile \"$ZED_FILENAME\" --synctex --untrusted --outfmt pdf && /Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW \"$ZED_STEM\".pdf",
+        "command": "cd $ZED_DIRNAME && tectonic -X compile $ZED_FILENAME --synctex --outfmt pdf && /Applications/Skim.app/Contents/SharedSupport/displayline -b -r $ZED_ROW $ZED_STEM.pdf $ZED_FILENAME",
         "allow_concurrent_runs": false,
         "reveal": "no_focus", //
         "hide": "on_success", // Blende das Task-Panel bei Erfolg aus
@@ -15,7 +15,7 @@
     // nur in skim angucken und nicht neu compilen
     {
         "label": "forward_search_skim",
-        "command": "/Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW $ZED_DIRNAME/$ZED_STEM.pdf",
+        "command": "/Applications/Skim.app/Contents/SharedSupport/displayline -b -r $ZED_ROW $ZED_DIRNAME/$ZED_STEM.pdf $ZED_FILENAME",
         "allow_concurrent_runs": false,
         "reveal": "no_focus",
         "hide": "on_success",
