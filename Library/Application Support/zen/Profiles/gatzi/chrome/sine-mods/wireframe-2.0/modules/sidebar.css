@@ -80,7 +80,7 @@
   }
 }
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+@media (-moz-pref("zen.view.use-single-toolbar")) {
   @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
     #zen-appcontent-navbar-wrapper::before {
       content: "";
@@ -153,8 +153,17 @@
       opacity: 0 !important;
       transition: opacity var(--na-anim-duration) normal !important;
     }
+    
+    #nav-bar-overflow-button{
+      opacity: 0 !important;
+      transition: opacity var(--na-anim-duration) normal !important;
+    }
 
     :has(#zen-sidebar-top-buttons:hover) #zen-sidebar-top-buttons-customization-target>* {
+      opacity: 1 !important;
+    }
+    
+    :has(#zen-sidebar-top-buttons:hover) #nav-bar-overflow-button{
       opacity: 1 !important;
     }
   }
@@ -187,25 +196,27 @@
 
 
 /* reduced height of floating sidebar for multiple/collapse toolbar */
-@media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+@media not (-moz-pref("zen.view.use-single-toolbar")) {
   :root[zen-compact-mode="true"] #navigator-toolbox {
     height: calc(100% - 48px) !important;
     align-self: center !important;
     margin-top: 20px !important;
+    top: 0 !important;
   }
 }
 
-@media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+@media not (-moz-pref("zen.view.use-single-toolbar")) {
   @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
     :root[zen-compact-mode="true"] #navigator-toolbox {
       height: calc(100% - 48px) !important;
       align-self: center !important;
       margin-top: 0px !important;
+      top: 0 !important;
     }
   }
 }
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar"){
+@media (-moz-pref("zen.view.use-single-toolbar")) {
   :root[zen-compact-mode="true"] #navigator-toolbox {
     margin-top: 10px !important;
   }
@@ -228,7 +239,7 @@
   margin-bottom: 6px !important;
 }
 
-@media not (-moz-bool-pref: "zen.view.use-single-toolbar") {
+@media (-moz-pref("zen.view.compact.hide-tabbar")) {
   /* expanded docked sidebar LEFT side mode */
   :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
     margin-left: 16px !important;
@@ -244,7 +255,7 @@
   }
 }
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+@media (-moz-pref("zen.view.use-single-toolbar")) {
   /* expanded docked sidebar LEFT side mode */
   :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
     margin-left: 16px !important;
@@ -260,7 +271,7 @@
   }
 }
 
-@media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
+@media not (-moz-bool-pref: "wireframe.urlbar.position.top") {
   /* expanded docked sidebar LEFT side mode */
   :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
     margin-left: 16px !important;
@@ -289,7 +300,7 @@
   border-radius: var(--na-user-border-radius) !important;
 }
 
-@media not (-moz-bool-pref: "zen.view.use-single-toolbar") {
+@media (-moz-pref("zen.view.compact.hide-tabbar")) {
   :root:not([zen-right-side])[zen-compact-mode="true"] #titlebar{
     margin-left: 16px !important;
     margin-bottom: 6px !important;
@@ -316,6 +327,11 @@
     margin-top: 6px !important;
   }
 }
+
+/* box shadow for compact sidebar */
+/* :root:not([zen-compact-mod="false"]) #titlebar{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+} */
 
 /* === SIDEBAR CONTENT === */
 
@@ -460,13 +476,6 @@ zen-folder {
   }
 }
 
-/* :root {
-  --wireframe-ess-width: 60px;
-}
-
-#zen-essentials-container, .zen-essentials-container {
-  grid-template-columns: repeat(var(--wireframe-ess-grid, 2), minmax(var(--wireframe-ess-width), auto)) !important;
-} */
 
 /* Border radius of essentials */
 .tabbrowser-tab:has([zen-essential]) .tab-background{
@@ -520,7 +529,7 @@ zen-folder {
 /* === AUDIO INDICATOR == */
 
 .tab-audio-button {
-  color: var(--zen-primary-color) !important;
+  color: var(--na-color-bg) !important;
 }
 
 /* === TRANSPARENT COMPACT SIDEBAR === */

@@ -25,7 +25,18 @@
             "ctrl-alt-shift-f": null //unbinded, damit macos commands fuer window management funktionieren
         }
     },
+    //GEMINI CLI
 
+    {
+        "bindings": {
+            "alt-cmd-shift-t": [
+          "agent::NewExternalAgentThread",
+          {
+            "agent": "gemini"
+          }
+        ]
+        }
+    },
     {
         "context": "Workspace",
         "bindings": {

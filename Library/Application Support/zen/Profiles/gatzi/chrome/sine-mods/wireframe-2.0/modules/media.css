@@ -34,6 +34,10 @@
       justify-content: center !important; /* center all children horizontally */
       align-items: center !important;     /* vertically center */
   }
+  
+  #zen-media-focus-button{
+    display: none !important;
+  }
 
   #zen-media-controls-hbox toolbarbutton[style*="display: none"] {
       width: 0 !important;
@@ -74,7 +78,7 @@
   
   /* change gradient color */
   #zen-media-info-vbox:before{
-    background: linear-gradient(to right, var(--na-color-bg) 0%, transparent 100%) !important;
+    background: linear-gradient(to right, var(--na-color-bg) 0%, transparent 80%) !important;
   }
 
 }
@@ -155,11 +159,11 @@
       }
   
       html {
-        animation: pip-fadein-html 0.5s ease !important;
+        animation: pip-fadein-html 0.3s ease !important;
       }
   
       .player-holder {
-        animation: pip-fadein-player 0.5s ease !important;
+        animation: pip-fadein-player 0.3s ease !important;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
   
@@ -171,7 +175,7 @@
           opacity: 0 !important;
           top: 0 !important;
           filter: blur(5px);
-          border-radius: var(--wf-pip-control-radius) !important;
+          border-radius: 0 !important;
           transition: opacity 0.3s ease, top 0.3s ease, filter 0.3s ease, background-color 0.2s ease !important;
           backdrop-filter: saturate(var(--wf-pip-saturation)) contrast(var(--wf-pip-contrast)) blur(var(--wf-pip-blur-radius)) !important;
           background-image: none !important;

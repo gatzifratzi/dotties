@@ -1,14 +1,14 @@
 /* === PANEL/POPUP === */
 
 panelview {
-  border-radius: 0px !important;
-  border: 1px solid var(--na-color-border) !important;
-  background-color: var(--na-color-bg) !important;
-  color: var(--na-color-text) !important;
+  border-radius: 8px !important;
+  border: 1.5px solid var(--na-color-border) !important;
+  background-color: var(--panel-background) !important;
+  color: var(--zen-primary-text) !important;
 }
 
-panelview #unified-extensions-area {
-  padding-block: 10px !important;
+panelview box{
+  border-radius: 8px !important; 
 }
 
 /* hide extension panel header */

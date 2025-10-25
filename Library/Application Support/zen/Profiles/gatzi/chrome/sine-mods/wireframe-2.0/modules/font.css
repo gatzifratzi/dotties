@@ -40,6 +40,12 @@
     }
 }
 
+@media (-moz-pref("wireframe.font", "Monocraft")) {
+    :root {
+        --wireframe-font: "Monocraft";
+    }
+}
+
 @font-face {
     font-family: "SF-Pro";
     src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/SF-Pro.ttf");
@@ -77,6 +83,13 @@
 @font-face {
     font-family: "JetBrainsMono";
     src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/JetBrainsMono-Regular.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Monocraft";
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/Monocraft.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }
