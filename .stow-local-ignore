@@ -24,4 +24,7 @@ _darcs
 # der font folder
 /fonts
 
+# Stats settings file
+Stats.plist
+
 .DS_Store

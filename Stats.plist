@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Battery_battery_additional</key>
+	<string>none</string>
+	<key>Battery_battery_color</key>
+	<false/>
+	<key>Battery_battery_hideAdditionalWhenFull</key>
+	<false/>
+	<key>Battery_battery_xlSize</key>
+	<false/>
+	<key>Battery_color</key>
+	<true/>
+	<key>Battery_notifications_high</key>
+	<string></string>
+	<key>Battery_notifications_low</key>
+	<string>low</string>
+	<key>Battery_processes</key>
+	<integer>10</integer>
+	<key>Battery_timeFormat</key>
+	<string>long</string>
+	<key>CPU_barChart_position</key>
+	<integer>0</integer>
+	<key>CPU_bar_chart_box</key>
+	<false/>
+	<key>CPU_bar_chart_color</key>
+	<string>monochrome</string>
+	<key>CPU_bar_chart_frame</key>
+	<true/>
+	<key>CPU_bar_chart_label</key>
+	<false/>
+	<key>CPU_chartColor</key>
+	<string>secondRed</string>
+	<key>CPU_clustersGroup</key>
+	<false/>
+	<key>CPU_hyperhreading</key>
+	<false/>
+	<key>CPU_label_position</key>
+	<integer>2</integer>
+	<key>CPU_lineChartHistory</key>
+	<integer>180</integer>
+	<key>CPU_lineChart_position</key>
+	<integer>3</integer>
+	<key>CPU_mini_position</key>
+	<integer>4</integer>
+	<key>CPU_pieChart_position</key>
+	<integer>1</integer>
+	<key>CPU_processes</key>
+	<integer>15</integer>
+	<key>CPU_splitValue</key>
+	<false/>
+	<key>CPU_systemColor</key>
+	<string>secondPurple</string>
+	<key>CPU_tachometer_position</key>
+	<integer>5</integer>
+	<key>CPU_updateInterval</key>
+	<integer>15</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>15</integer>
+	<key>CPU_usagePerCore</key>
+	<false/>
+	<key>CPU_userColor</key>
+	<string>secondOrange</string>
+	<key>CPU_widget</key>
+	<string>bar_chart</string>
+	<key>CombinedModules</key>
+	<false/>
+	<key>Disk_state</key>
+	<false/>
+	<key>LaunchAtLoginNext</key>
+	<true/>
+	<key>NSStatusItem Preferred Position Battery</key>
+	<real>241</real>
+	<key>NSStatusItem Preferred Position CPU</key>
+	<real>363</real>
+	<key>NSStatusItem Preferred Position RAM</key>
+	<real>325</real>
+	<key>NSStatusItem Restore Position Battery_battery</key>
+	<integer>222</integer>
+	<key>NSStatusItem Restore Position CPU_bar_chart</key>
+	<integer>380</integer>
+	<key>NSStatusItem Restore Position CPU_mini</key>
+	<integer>413</integer>
+	<key>NSStatusItem Restore Position RAM_mini</key>
+	<integer>366</integer>
+	<key>NSStatusItem Restore Position RAM_pie_chart</key>
+	<integer>346</integer>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>550 566 370 167 0 0 1470 922 </string>
+	<key>Network_state</key>
+	<false/>
+	<key>RAM_appColor</key>
+	<string>secondPurple</string>
+	<key>RAM_barChart_position</key>
+	<integer>4</integer>
+	<key>RAM_chartColor</key>
+	<string>secondGreen</string>
+	<key>RAM_combinedProcesses</key>
+	<true/>
+	<key>RAM_compressedColor</key>
+	<string>cyan</string>
+	<key>RAM_freeColor</key>
+	<string>lightGray</string>
+	<key>RAM_label_position</key>
+	<integer>2</integer>
+	<key>RAM_lineChartScale</key>
+	<string>none</string>
+	<key>RAM_lineChart_position</key>
+	<integer>3</integer>
+	<key>RAM_memory_position</key>
+	<integer>5</integer>
+	<key>RAM_mini_position</key>
+	<integer>1</integer>
+	<key>RAM_pieChart_position</key>
+	<integer>0</integer>
+	<key>RAM_pie_chart_label</key>
+	<false/>
+	<key>RAM_pie_chart_monochrome</key>
+	<true/>
+	<key>RAM_processes</key>
+	<integer>15</integer>
+	<key>RAM_tachometer_position</key>
+	<integer>6</integer>
+	<key>RAM_text_position</key>
+	<integer>7</integer>
+	<key>RAM_updateInterval</key>
+	<integer>15</integer>
+	<key>RAM_updateTopInterval</key>
+	<integer>15</integer>
+	<key>RAM_widget</key>
+	<string>pie_chart</string>
+	<key>RAM_wiredColor</key>
+	<string>secondOrange</string>
+	<key>runAtLoginInitialized</key>
+	<true/>
+	<key>setupProcess</key>
+	<true/>
+	<key>support_ts</key>
+	<integer>1759329505</integer>
+	<key>updater_check_ts</key>
+	<integer>1760969775</integer>
+	<key>version</key>
+	<string>2.11.57</string>
+</dict>
+</plist>
