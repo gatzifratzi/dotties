@@ -187,7 +187,7 @@
 }
 
 /* adjust height for top urlbar and buttons in sidebar */
-@media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+@media not (-moz-pref("zen.view.use-single-toolbar")){
   @media (-moz-bool-pref: "wireframe.urlbar.position.top"){
     #zen-sidebar-top-buttons{
       margin-top: -4px !important;

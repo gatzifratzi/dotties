@@ -88,28 +88,13 @@
       left: 0;
       right: 0;
       bottom: -10px;
-      height: 40px; /* ← increases hover hitbox */
+      height: 20px; /* ← increases hover hitbox */
     }
   }
 
-    :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) #zen-appcontent-navbar-wrapper {
-      /*padding-block: 10px !important; */
-      margin-block: -5px !important;
-      transition: margin-block var(--na-anim-duration) ease !important;
-    }
 
-  @media (-moz-bool-pref: "wireframe.urlbar.position.top"){
-    #zen-appcontent-navbar-wrapper::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -10px;
-      height: 40px; /* ← increases hover hitbox */
-    }
-  }
 
-      :root:has(#customization-content-container:hover),
+/*       :root:has(#customization-content-container:hover),
       :root:has(toolbarpaletteitem:active),
       :root:has(#zen-appcontent-navbar-container:hover),
       :root:has(.titlebar-buttonbox-container:hover),
@@ -117,7 +102,7 @@
       :root:has(#zen-appcontent-navbar-wrapper:hover) #zen-appcontent-navbar-wrapper {
         margin-block: 0px !important;
       }
-
+ */
       :root[zen-sidebar-expanded="true"] {
 
       /* keep it visible if any of these areas are hovered / active */
@@ -367,15 +352,15 @@
 
 /* focused tab */
 .tabbrowser-tab[selected]:not([zen-essential]) label {
-  color: var(--na-color-bg) !important;
+/*   color: var(--na-color-bg) !important; */
   border-radius: var(--na-tab-border-radius) !important;
 }
 
 /* invert selected tab reset/close button */
-.tabbrowser-tab[selected] .tab-reset-button,
+/* .tabbrowser-tab[selected] .tab-reset-button,
 .tabbrowser-tab[selected] .tab-close-button {
   filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
-}
+} */
 
 /* invert selected tab icon img */
 @media (-moz-bool-pref:"wireframe.tab-icon.invert"){
@@ -441,14 +426,14 @@
 }
 
 /* selected tab background */
-.tabbrowser-tab[selected]:not([zen-essential])>stack>vbox {
+/* .tabbrowser-tab[selected]:not([zen-essential])>stack>vbox {
   background: var(--na-color-text) !important;
-}
+} */
 
 /* active tab rename text fix */
-#tab-label-input{
+/* #tab-label-input{
   color: var(--na-color-bg) !important;
-}
+} */
 
 .tabbrowser-tab .tab-background:not([zen-essential])::before{
   background: rgba(0,0,0,0.2) !important;
@@ -458,7 +443,7 @@
 
 /* unfocused tabs */
 .tabbrowser-tab:not([zen-essential]) {
-  color: var(--na-color-text) !important;
+/*   color: var(--na-color-text) !important; */
   border-radius: var(--na-tab-border-radius) !important;
 }
 

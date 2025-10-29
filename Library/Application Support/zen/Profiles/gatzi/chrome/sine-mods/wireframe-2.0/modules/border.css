@@ -56,6 +56,13 @@ body > hbox {
   outline-offset: 0px !important;
 }
 
+:root[sizemode="fullscreen"] #browser {
+  border: 0 !important;
+  border-radius: 0px !important;
+  outline: none !important;
+  outline-offset: 0px !important;
+}
+
 :root[inDOMFullscreen="true"] #browser {
   border: 0 !important;
   border-radius: 0px !important;
@@ -111,19 +118,19 @@ body > hbox {
   }
 } */
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar"){
+/* @media (-moz-pref("zen.view.use-single-toolbar")) {
   @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
     :root[zen-sidebar-expanded="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       margin-bottom: calc( var(--na-window-margin) - 10px ) !important;
     }
   }
-}
+} */
 
 /* content window + address bar */
 #zen-appcontent-wrapper {
   /* background-color: var(--na-color-bg) !important; */
   border-radius: 0px !important;
-/*   margin: 0px !important; */
+/*! margin: 0px !important; */
   padding: 0px !important;
 }
 
@@ -133,10 +140,11 @@ body > hbox {
   /*! background-color: var(--na-color-bg) !important; */
   overflow: clip !important;
  padding: 0px !important;
- border-radius: 0px !important;
+ border-radius: 0 !important;
 }
 
-/* Apply the user-defined border radius */
+/* WEBVIEW BORDER RADIUS */
+
 :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
   border-radius: var(--na-user-border-radius) !important;
 }
@@ -145,7 +153,29 @@ body > hbox {
   border-radius: var(--na-user-border-radius) !important;
 }
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+/* ADD WEBVIEW BORDER RADIUS TO CHILDREN ELEMENTS OF TABBOX */
+:root:not([zen-compact-mode="true"]){
+  @media not (-moz-pref("wireframe.nogaps.enabled")){
+    #tabbrowser-tabpanels > *{
+      border-radius: var(--na-user-border-radius) !important;
+      transition: border-radius 0.18s linear !important;
+    }
+  }
+}
+
+:root:has([zen-compact-mode="true"]):not([inDOMFullscreen="true"]):not([sizemode="fullscreen"]):has(#zen-appcontent-navbar-wrapper[zen-has-hover="false"]){
+  #zen-tabbox-wrapper{
+    border-radius: var(--na-window-border-radius) !important;
+  }
+  
+  #tabbrowser-tabpanels > * {
+    border-radius: var(--na-window-border-radius) !important;
+  }
+}
+
+
+/* SPLIT TABS */
+@media (-moz-pref("zen.view.use-single-toolbar")) {
   :root:has(#tabbrowser-tabpanels [zen-split])[zen-compact-mode="true"][zen-sidebar-expanded="true"] #zen-tabbox-wrapper {
     margin: var(--na-window-margin) !important;
  }
@@ -157,21 +187,88 @@ body > hbox {
  }
 }
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-  :root:has(#tabbrowser-tabpanels [zen-split])[zen-compact-mode="true"] #zen-tabbox-wrapper {
-    margin: var(--na-window-margin) !important;
+/* NO GAPS COMPACT MODE (DEFAULT) */
+
+:root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([customizing]) {
+  /* Credits to CompTechGuy */
+  #zen-appcontent-navbar-wrapper {
+	  min-height: 0.1px !important;
+		height: 0.1px !important;
+	}
+
+	#zen-appcontent-navbar-wrapper[zen-has-hover="true"] {
+	  height: 34px !important;
+	}
+  
+  --zen-element-separation: 0px !important;
+  
+  #zen-tabbox-wrapper,
+  #tabbox-browser,
+  #tabbox-browser > *
+  {
+    border-radius: 0 !important;
   }
 }
 
-:root[zen-compact-mode="true"] #zen-tabbox-wrapper {
-  border-top: 1px solid var(--na-color-border) !important;
-  margin: 0px !important;
+/* FIX : REMOVE NAVBAR CONTAINER WHEN EMPTY */
+:root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([customizing]):has(#PersonalToolbar[collapsed]){
+  @media (-moz-pref("zen.view.experimental-force-window-controls-left")){
+      #zen-appcontent-navbar-wrapper{
+        display: none !important;
+      }
+   }
 }
 
-@media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
-  :root[zen-compact-mode="true"] #zen-tabbox-wrapper {
-    border-bottom: 1px solid var(--na-color-border) !important;
-    margin: 0px !important;
+:root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]:not([customizing]) {
+  /* Credits to CompTechGuy */
+  
+  /* TODO: ADD HIDE PREF FOR MULTI TOOLBAR TOPBAR !!! */
+  
+/*   #zen-appcontent-navbar-wrapper {
+	  min-height: 0.1px !important;
+		height: 0.1px !important;
+    transition: 0.18s ease !important;
+	}
+
+	#zen-appcontent-navbar-wrapper[zen-has-hover="true"] {
+	  height: 34px !important;
+	} */
+  
+  --zen-element-separation: 0px !important;
+  
+  @media not (-moz-pref("wireframe.urlbar.position.top")){
+    #zen-tabbox-wrapper,
+    #tabbox-browser,
+    #tabbox-browser > *
+    {
+      border-top-left-radius: var(--na-window-border-radius) !important;
+      border-top-right-radius: var(--na-window-border-radius) !important;
+    }
+  }
+  
+    @media (-moz-pref("wireframe.urlbar.position.top")){
+    #zen-tabbox-wrapper,
+    #tabbox-browser,
+    #tabbox-browser > *
+    {
+      border-bottom-left-radius: var(--na-window-border-radius) !important;
+      border-bottom-right-radius: var(--na-window-border-radius) !important;
+    }
+  }
+}
+
+/* BORDER FOR MULTI TOOLBAR TOP BAR */
+:root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]{
+  @media not (-moz-pref("wireframe.urlbar.position.top")){
+    #zen-appcontent-navbar-wrapper{
+      border-top: 2px solid var(--na-color-border) !important;
+    }
+  }
+  
+  @media (-moz-pref("wireframe.urlbar.position.top")){
+    #zen-appcontent-navbar-wrapper{
+      border-bottom: 2px solid var(--na-color-border) !important;
+    }
   }
 }
 
@@ -257,7 +354,7 @@ body > hbox {
 
 /* === NO GAPS === */
 
-@media (-moz-bool-pref: "zen.view.use-single-toolbar"){
+@media (-moz-pref("zen.view.use-single-toolbar")) {
   @media (-moz-pref("wireframe.nogaps.enabled")) {
     :root {
       --zen-element-separation: 0px !important;
@@ -271,21 +368,21 @@ body > hbox {
     
     :root:not([zen-right-side="false"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       margin: 0 !important;
-      border-radius: 0 !important;
+      border-radius: var(--na-window-border-radius) !important;
       border: none !important;
     }
     
     /* sidebar on the RIGHT → kill right corners */
-/*     :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+    :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       border-top-right-radius: 0 !important;
       border-bottom-right-radius: 0 !important;
-    } */
+    }
     
     /* sidebar on the LEFT → kill left corners */
-/*     :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+    :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       border-top-left-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
-    } */
+    }
     
 /*     :root[zen-single-toolbar="true"]:not([customizing]) {
       & #zen-appcontent-navbar-wrapper {
