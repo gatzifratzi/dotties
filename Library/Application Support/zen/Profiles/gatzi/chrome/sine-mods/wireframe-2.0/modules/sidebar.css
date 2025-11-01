@@ -31,8 +31,8 @@
 @media not (-moz-bool-pref: "zen.view.experimental-force-window-controls-left"){
   :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
     margin-left: 16px !important;
-    margin-bottom: 6px !important;
-    margin-top: 32px !important;
+    /*! margin-bottom: 6px !important; */
+    /*! margin-top: 32px !important; */
   }
 }
 
@@ -58,9 +58,9 @@
 
 @media not (-moz-bool-pref: "zen.view.experimental-force-window-controls-left"){
   :root[zen-right-side][zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
-    margin-right: 16px !important;
-    margin-bottom: 32px !important;
-    margin-top: 6px !important;
+/*     margin-right: 16px !important; */
+/*     margin-bottom: 32px !important; */
+/*     margin-top: 6px !important; */
   }
 }
 

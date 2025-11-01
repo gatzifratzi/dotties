@@ -291,7 +291,7 @@ body > hbox {
     ):has(#PersonalToolbar[collapsed]) {
     @media (-moz-pref("zen.view.experimental-force-window-controls-left")) {
         #zen-appcontent-navbar-wrapper {
-            display: none !important;
+            height: 0.1px !important;
         }
     }
 }
@@ -345,10 +345,19 @@ body > hbox {
 }
 
 /* fix for corner bleeding in single toolbar compact mode */
-:root[zen-single-toolbar="true"][zen-compact-mode="true"] #browser,
-:root[zen-single-toolbar="true"][zen-compact-mode="true"] #main-window {
+:root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #browser,
+:root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #main-window {
     overflow: hidden !important;
     clip-path: inset(0 round var(--na-window-border-radius));
+}
+
+/* fix for rounded corners in maximised compact mode */
+:root:not([sizemode="normal"])[zen-compact-mode="true"]:not([customizing]){
+    #zen-tabbox-wrapper,
+    #tabbrowser-tabbox,
+    #tabbrowser-tabbox > * {
+        border-radius: 0 !important;
+    }
 }
 
 /* BORDER FOR MULTI TOOLBAR TOP BAR */

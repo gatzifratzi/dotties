@@ -71,6 +71,7 @@
 }
 
 /* ====== BOTTOMBAR REVEAL ON HOVER ====== */
+
 @media not (-moz-pref("zen.view.use-single-toolbar")) {
   @media (-moz-pref("wireframe.toolbar.hide")) {
     #zen-appcontent-navbar-container #identity-box,
@@ -104,6 +105,16 @@
       #zen-appcontent-navbar-container .toolbarbutton-1 {
         visibility: visible !important;
       }
+    }
+  }
+}
+
+/* fix for hidden navigation icons in collapsed toolbar */
+@media (-moz-pref("wireframe.urlbar.position.top")){
+  @media (-moz-pref("wireframe.controls.reverse")){
+    :root:not([zen-single-toolbar="true"]) #nav-bar{
+      margin-left: 10px !important;
+      width: calc(100% + var(--zen-toolbox-max-width) - var(--zen-element-separation) - 60px) !important;
     }
   }
 }

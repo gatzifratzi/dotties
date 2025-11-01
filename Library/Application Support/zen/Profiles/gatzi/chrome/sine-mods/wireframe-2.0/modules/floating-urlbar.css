@@ -807,7 +807,7 @@
         transform-origin: center bottom !important;
         /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
         right: auto !important;
-        /*! display: flex !important; */
+        display: flex !important;
         flex-direction: column !important;
         top: auto !important;
         bottom: 62.5px !important;
