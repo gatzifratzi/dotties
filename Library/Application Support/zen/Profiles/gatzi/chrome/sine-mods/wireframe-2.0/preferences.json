@@ -69,7 +69,7 @@
 
   {
     "type": "text",
-    "label": "Toolbar & Navigation",
+    "label": "Toolbar and Navigation",
     "margin": "30px 0 20px 0",
     "size": "25px"
   },
@@ -108,12 +108,22 @@
   },
   {
     "type": "checkbox",
+    "property": "wireframe.compact-sidebar.hide",
+    "label": "Hide compact sidebar on empty tab",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
     "property": "wireframe.compact.siderbar.transparent",
     "label": "Make sidebar transparent in compact mode",
     "value": "boolean",
     "default": false
   },
-  
+
   {
     "type": "text",
     "label": "URL bar Settings",
@@ -150,7 +160,107 @@
     "type": "checkbox",
     "value": "boolean"
   },
-  
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "label": "URLBar Opening Animation",
+    "property": "wireframe.urlbar-open.effect",
+    "value": "string",
+    "defaultValue": "Slide from Bottom",
+    "options": [
+      {
+        "value": "Slide from Bottom",
+        "label": "Slide from Bottom"
+      },
+      {
+        "value": "Magnetic Rise",
+        "label": "Magnetic Rise"
+      },
+      {
+        "value": "PopCorn",
+        "label": "PopCorn"
+      },
+      {
+        "value": "Drop Off",
+        "label": "Drop Off"
+      },
+      {
+        "value": "Neon Flash",
+        "label": "Neon Flash"
+      },
+      {
+        "value": "Soft Warp",
+        "label": "Soft Warp"
+      },
+      {
+        "value": "Unfold",
+        "label": "Unfold"
+      },
+      {
+        "value": "Glitch Phase",
+        "label": "Glitch Phase"
+      },
+      {
+        "value": "Orbit Entry",
+        "label": "Orbit Entry"
+      },
+      {
+        "value": "Slam Up",
+        "label": "Slam Up"
+      },
+      {
+        "value": "Slinky Drop",
+        "label": "Slinky Drop"
+      },
+      {
+        "value": "Plane Shift",
+        "label": "Plane Shift"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "label": "Webview Animation",
+    "property": "wireframe.urlbar-focus.effect",
+    "value": "string",
+    "defaultValue": "Hard Shift",
+    "options": [
+      {
+        "value": "Hard Shift",
+        "label": "Hard Shift"
+      },
+      {
+        "value": "Lights Off",
+        "label": "Lights Off"
+      },
+      {
+        "value": "Pushed Away",
+        "label": "Pushed Away"
+      },
+      {
+        "value": "Soft Fade",
+        "label": "Soft Fade"
+      },
+      {
+        "value": "Film Grain Blur",
+        "label": "Film Grain Blur"
+      },
+      {
+        "value": "Flash Bang",
+        "label": "Flash Bang"
+      },
+      {
+        "value": "CRT Snap",
+        "label": "CRT Snap"
+      }
+    ]
+  },
+
   {
     "type": "text",
     "label": "Blank Page Settings",
@@ -530,7 +640,7 @@
     "defaultValue": "",
     "placeholder": "12px"
   },
-  
+
   {
     "type": "text",
     "label": "Picture-in-Picture",
@@ -599,7 +709,7 @@
     "value": "boolean",
     "default": false
   },
-  
+
   {
     "type": "text",
     "label": "Media Player",

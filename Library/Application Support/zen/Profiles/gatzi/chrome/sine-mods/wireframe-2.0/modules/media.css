@@ -1,7 +1,7 @@
 /* MEDIA CONTROLS */
 #zen-media-controls-toolbar>toolbaritem {
     backdrop-filter: saturate(1) contrast(0) blur(10px) !important;
-    background-color: var(--na-color-bg) !important;
+/*     background-color: var(--na-color-bg) !important; */
     border-color: var(--na-color-border) !important;
     border-width: 2px !important;
     border-style: solid !important;
@@ -78,7 +78,7 @@
   
   /* change gradient color */
   #zen-media-info-vbox:before{
-    background: linear-gradient(to right, var(--na-color-bg) 0%, transparent 80%) !important;
+    background: linear-gradient(to right, transparent 0%, transparent 80%) !important;
   }
 
 }

@@ -26,7 +26,7 @@
     min-height: 16px !important;
     min-width: 16px !important;
     align-self: center;
-    margin-right: 9px !important;
+    margin-right: 5px !important;
     border-radius: 0px !important;
     border: 0px solid rgb(0 0 0 / 10%);
     transition: all 100ms;
@@ -171,6 +171,16 @@
   .titlebar-buttonbox-container {
     order: -1 !important;
     margin-left: 8px !important;
+  }
+}
+
+@media (-moz-bool-pref: "wireframe.controls.reverse"){
+  @media not (-moz-bool-pref: "wireframe.macos.controls"){
+    .titlebar-min,
+    .titlebar-max,
+    .titlebar-close {
+      margin-right: 5px !important;
+    }
   }
 }
 

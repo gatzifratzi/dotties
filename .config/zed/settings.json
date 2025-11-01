@@ -1,5 +1,5 @@
 // Extension:
-// themes: Zedokai, Blade Runner, Rose Pine, Kanagawa, Serendipity, Gruvbox baby
+// themes: Zedokai, Blade Runner, Rose Pine, Kanagawa, Gruvbox baby, 0x96f, nyxvamp
 // icons: catpuccin, material, colored zed, serendipity
 //
 // Zed settings
@@ -57,7 +57,7 @@
     //VISUELLES
     // Themes (cmd-k cmd-t)
     // Skeletor, Hanso Dark, Cursor Blur, Sandstorm Dark, Perf Warm
-    "theme": "Blade Runner 2049 Dark User Imput",
+    "theme": "Ayu Dark",
     "icon_theme": "Catppuccin Macchiato",
     "unnecessary_code_fade": 0.25,
 

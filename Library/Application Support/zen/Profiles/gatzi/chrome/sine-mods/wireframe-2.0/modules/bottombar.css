@@ -1,33 +1,86 @@
 /* === BOTTOMBAR === */
 
 /* bottombar */
-/* #zen-appcontent-navbar-wrapper{
-  margin-right: 10px !important;
-  margin-left: 10px !important;
+/* :root:not([zen-single-toolbar="true"]){
+  #zen-appcontent-navbar-wrapper{
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+  }
 } */
+
+/* ====== WEBVIEW WRAPPER ADJUSTMENTS FOR MULTI TOOLBAR ====== */
+
+@media not (-moz-pref("zen.view.use-single-toolbar")) {
+  /* URL bar position preference - TOP */
+@media (-moz-bool-pref: "wireframe.urlbar.position.top") {
+  #zen-appcontent-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* URL bar position preference - BOTTOM (default) */
+@media not (-moz-bool-pref: "wireframe.urlbar.position.top") {
+    #zen-appcontent-wrapper {
+      flex-direction: column-reverse;
+    }
+
+    :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      margin-top: var(--na-window-margin) !important;
+      margin-left: var(--na-window-margin) !important;
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      margin-top: var(--na-window-margin) !important;
+      margin-left: 0 !important;
+      margin-right: var(--na-window-margin) !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
 
 #zen-appcontent-navbar-container {
   border: 0px solid var(--na-color-border) !important;
   border-radius: 0px !important;
   border-color: var(--na-color-border) !important;
-  margin-left: 0px !important;
-  margin-right: 10px !important;
-  padding-inline: 10px !important;
+  margin-inline: 0px !important;
+/*   padding-inline: 10px !important; */
+  box-sizing: border-box !important;
   transition: padding-inline 0.3s normal;
   order: 1 !important;
 }
 
-/* hide bottombar elements */
+#nav-bar-customization-target {
+  padding-inline: 10px !important;
+  transition: padding-inline 0.3s normal !important;
+}
+
+:root[zen-single-toolbar="true"] #nav-bar-customization-target {
+  padding-inline: 0px !important;
+}
+
+/* padding for controls reverse */
+@media (-moz-pref("wireframe.controls.reverse")){
+  :root:not([zen-single-toolbar="true"]){
+    #zen-appcontent-navbar-wrapper{
+      padding-right: 10px !important;
+    }
+  }
+}
+
+/* ====== BOTTOMBAR REVEAL ON HOVER ====== */
 @media not (-moz-pref("zen.view.use-single-toolbar")) {
   @media (-moz-pref("wireframe.toolbar.hide")) {
     #zen-appcontent-navbar-container #identity-box,
     #zen-appcontent-navbar-container #page-action-buttons,
+    #zen-appcontent-navbar-container #zen-copy-url-button,
     #zen-appcontent-navbar-container #tracking-protection-icon-container,
     #zen-appcontent-navbar-container .toolbarbutton-1 {
       visibility: collapse !important;
     }
 
-    /* Define the triggers that should reveal elements */
     :root:not(:has(.tabbrowser-tab[selected][busy])):is(
       :has(#customization-content-container:hover),
       :has(toolbarpaletteitem:active),
@@ -36,14 +89,17 @@
       :has(#unified-extensions-button[open]),
       :has(#zen-appcontent-navbar-container:hover),
       :has(#zen-appcontent-navbar-container[has-popup-menu]),
-      :has(panelmultiview > .panel-viewcontainer[panelopen="true"]) /* <<< FIX */
+      :has(panelmultiview > .panel-viewcontainer[panelopen="true"])
     ) {
-      #zen-appcontent-navbar-container {
+
+      /* now reveal by adjusting child instead of wrapper */
+      #nav-bar-customization-target{
         padding-inline: 0px !important;
       }
 
       #zen-appcontent-navbar-container #identity-box,
       #zen-appcontent-navbar-container #page-action-buttons,
+      #zen-appcontent-navbar-container #zen-copy-url-button,
       #zen-appcontent-navbar-container #tracking-protection-icon-container,
       #zen-appcontent-navbar-container .toolbarbutton-1 {
         visibility: visible !important;
@@ -51,6 +107,17 @@
     }
   }
 }
+
+/*#titlebar {
+  flex-shrink: 0 !important;
+  position: relative;
+  z-index: 10;
+}
+
+#zen-appcontent-navbar-container {
+  min-width: 0 !important;
+  flex: 0 0 auto !important;
+}*/
 
 
 /* bottombar background transparent for expanded urlbar */
@@ -89,7 +156,7 @@
 
 /* urlbar loading text */
 #urlbar>.urlbar-input-container>.urlbar-input-box::before {
-  content: "Loading" !important;
+  content: "wireframing..." !important;
   padding-inline: 10px !important;
   animation: slideUpAdressBar var(--na-anim-duration) ease;
   animation-play-state: paused;
@@ -124,7 +191,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, var(--na-color-border));
+  background: linear-gradient(90deg, transparent, var(--zen-colors-tertiary));
   border-radius: var(--na-tab-border-radius) !important;
   background-size: 200% 100%;
   animation: urlbar-loading 1s linear reverse infinite;
@@ -139,6 +206,11 @@
   opacity: 1;
 }
 
+#main-window:has(.tabbrowser-tab[selected][busy]) #zen-copy-url-button,
+#main-window:has(.tabbrowser-tab[selected][busy]) #identity-box {
+  display: none !important;
+}
+
 .tabbrowser-tab[busy] #urlbar {
   animation: slideUpAdressBar var(--na-anim-duration) ease;
 }
@@ -148,33 +220,6 @@
   } */
 }
 
-/* URL bar position preference - TOP */
-@media (-moz-bool-pref: "wireframe.urlbar.position.top") {
-  #zen-appcontent-wrapper {
-    flex-direction: column;
-  }
-}
-
-/* URL bar position preference - BOTTOM (default) */
-@media not (-moz-bool-pref: "wireframe.urlbar.position.top") {
-  #zen-appcontent-wrapper {
-    flex-direction: column-reverse;
-  }
-
-  :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
-    margin-top: var(--na-window-margin) !important;
-    margin-left: var(--na-window-margin) !important;
-    margin-right: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
-    margin-top: var(--na-window-margin) !important;
-    margin-left: 0 !important;
-    margin-right: var(--na-window-margin) !important;
-    margin-bottom: 0 !important;
-  }
-}
 
 .tab-stack {
   box-shadow: none !important;

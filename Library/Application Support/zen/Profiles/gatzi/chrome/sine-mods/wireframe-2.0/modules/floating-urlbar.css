@@ -1,68 +1,125 @@
 /* FLOATING URLBAR */
 
-/* urlbar opening and closing animations */
-#urlbar[open]{
-  animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; 
-}
-
-#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar[open]{
-  animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-}
-
 /* changed urlbar box shadow */
 #urlbar[open] .urlbar-background{
   box-shadow: none !important;
 }
 
+/* === TABBOX ANIMATIONS FOR URLBAR POP UP === */
+
+/* base for tabbox animations */
 #zen-tabbox-wrapper {
-  transform: translateY(0) scale(1);
+  position: relative;
+  transform: scale(1);
   opacity: 1;
+  filter: none;
   transition:
     transform 0.25s cubic-bezier(0.33, 1, 0.68, 1),
     opacity 0.25s linear,
     filter 0.25s ease;
+  will-change: transform, opacity, filter;
 }
 
-:root:has(#urlbar[open]) #zen-tabbox-wrapper {
-  transform: scale(0.97);
-  opacity: 0.9;
-  filter: brightness(0.9) contrast(0.95);
+/* fast */
+/* #zen-tabbox-wrapper {
+  transition:
+    transform 0.18s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 0.18s linear,
+    filter 0.18s ease;
+  will-change: transform, opacity, filter;
+} */
+
+/* Hard Shift */
+@media (-moz-pref("wireframe.urlbar-focus.effect","Hard Shift")) {
+  #zen-tabbox-wrapper {
+    transition:
+      transform 0.12s cubic-bezier(0.6, 0, 0.4, 1),
+      filter 0.12s linear,
+      opacity 0.12s linear;
+    transform-origin: center;
+  }
+
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    transform: scale(0.97) translateZ(0);
+    opacity: 0.82;
+    filter: brightness(0.95) contrast(1.15);
+  }
+
 }
 
+
+/* Lights off */
+@media (-moz-pref("wireframe.urlbar-focus.effect","Lights Off")){
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    transform: scale(0.985);
+    opacity: 0.94;
+    filter: brightness(0.3) contrast(0.9) saturate(1.1) blur(0.4px) hue-rotate(-3deg);
+  }
+}
+
+
+/* Pushed away */
+@media (-moz-pref("wireframe.urlbar-focus.effect","Pushed Away")){
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    transform: rotateY(6deg) scale(0.97);
+    opacity: 0.88;
+    filter: brightness(0.95) contrast(0.9) blur(1.2px);
+  }
+}
+
+/* Soft Fade */
+@media (-moz-pref("wireframe.urlbar-focus.effect","Soft Fade")){
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    transform: scale(0.98);
+    opacity: 0.85;
+    filter: brightness(1.3) contrast(0.9) saturate(0.7);
+  }
+}
+
+
+/* Film Grain Blur */
+@media (-moz-pref("wireframe.urlbar-focus.effect","Film Grain Blur")){
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    transform: scale(0.97);
+    opacity: 0.9;
+    filter: brightness(0.95) contrast(0.85) saturate(0.9) blur(1.2px);
+  }
+}
 
 /* FLASH BANG */
-
-/* :root:has(#urlbar[open]) #zen-tabbox-wrapper {
-  animation: nullBlink 0.18s ease-in-out;
+@media (-moz-pref("wireframe.urlbar-focus.effect","Flash Bang")){
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    animation: nullBlink 0.18s ease-in-out;
+  }
+  @keyframes nullBlink {
+    0% { opacity: 1; }
+    40% { opacity: 0; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+  }
 }
-@keyframes nullBlink {
-  0% { opacity: 1; }
-  40% { opacity: 0; transform: scale(0.98); }
-  100% { opacity: 1; transform: scale(1); }
-} */
-
 
 /* CRT Snap */
+@media (-moz-pref("wireframe.urlbar-focus.effect","CRT Snap")){
+  #zen-tabbox-wrapper {
+    will-change: transform, opacity;
+    transition:
+      transform 0.22s cubic-bezier(0.33, 1, 0.68, 1),
+      opacity 0.22s linear;
+      filter 0.22 linear;
+  }
 
-/* #zen-tabbox-wrapper {
-  will-change: transform, opacity;
-  transition:
-    transform 0.22s cubic-bezier(0.33, 1, 0.68, 1),
-    opacity 0.22s linear;
-    filter 0.22 linear;
+  :root:has(#urlbar[open]) #zen-tabbox-wrapper {
+    animation: crtSnap 0.18s ease-in-out forwards;
+  }
+
+  @keyframes crtSnap {
+    0% { transform: scale(1); opacity: 1; }
+    40% { transform: scale(0.9) skewY(2deg); opacity: 0.4; filter: contrast(1.2); }
+    100% { transform: scale(0.95); opacity: 0.85; filter: contrast(1); }
+  }
 }
 
-:root:has(#urlbar[open]) #zen-tabbox-wrapper {
-  animation: crtSnap 0.18s ease-in-out forwards;
-}
-
-@keyframes crtSnap {
-  0% { transform: scale(1); opacity: 1; }
-  40% { transform: scale(0.9) skewY(2deg); opacity: 0.4; filter: contrast(1.2); }
-  100% { transform: scale(0.95); opacity: 0.85; filter: contrast(1); }
-} */
-
-  
+/* tabbox content border radius change based on gap */
 :root:has(#urlbar[open]){
   @media not (-moz-pref("wireframe.nogaps.enabled")){
   #tabbrowser-tabpanels > hbox{
@@ -109,9 +166,9 @@
 /* MULTI-TOOLBAR */
 
 :root:not([zen-single-toolbar="true"]) {
-  #urlbar[open]{
+/*   #urlbar[open]{
     animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-  }
+  } */
   
   /* SLIM */
   @media (-moz-pref("wireframe.urlbar.style","slim")){
@@ -206,7 +263,7 @@
         min-width: var(--na-urlbar-width) !important;
         max-width: var(--na-urlbar-width) !important;
         left: 50% !important;
-        animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+/*         animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; */
         transform-origin: center bottom !important;
         /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
         right: auto !important;
@@ -477,17 +534,17 @@
       min-width: var(--na-urlbar-width) !important;
       max-width: var(--na-urlbar-width) !important;
       left: 50% !important;
-      animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+/*       animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; */
       /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
       right: auto !important;
       top: 50% !important;
     }
 
-    @media not (-moz-pref("zen.view.use-single-toolbar")) {
+/*     @media not (-moz-pref("zen.view.use-single-toolbar")) {
       #urlbar[open]{
         animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
       }
-    }
+    } */
 
     /* floating urlbar position for compact sidebar */
     :root[zen-compact-mode="true"]:not([zen-right-side="true"]) {
@@ -521,7 +578,7 @@
         min-width: var(--na-urlbar-width) !important;
         max-width: var(--na-urlbar-width) !important;
         left: 50% !important;
-        animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+/*         animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; */
         /*! transform-origin: center bottom !important; */
         /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
         right: auto !important;
@@ -746,7 +803,7 @@
         min-width: var(--na-urlbar-width) !important;
         max-width: var(--na-urlbar-width) !important;
         left: 50% !important;
-        animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+/*         animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; */
         transform-origin: center bottom !important;
         /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
         right: auto !important;
@@ -1056,17 +1113,17 @@
       min-width: var(--na-urlbar-width) !important;
       max-width: var(--na-urlbar-width) !important;
       left: 50% !important;
-      animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+/*       animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; */
       /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
       right: auto !important;
       top: 50% !important;
     }
 
-    @media not (-moz-pref("zen.view.use-single-toolbar")) {
+/*     @media not (-moz-pref("zen.view.use-single-toolbar")) {
       #urlbar[open]{
         animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
       }
-    }
+    } */
 
     /* floating urlbar position for compact sidebar */
     :root[zen-compact-mode="true"]:not([zen-right-side="true"]) {
@@ -1310,38 +1367,391 @@
    }
  }
 
-/* opening animation for the floating URL bar */
-@keyframes slideFromBottom {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(80px) scale(0.96);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-4px) scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-        filter: none;
-    }
+/* === URLBAR OPENING ANIMATIONS === */
+
+/* base variable for X offset */
+:root {
+  --urlbar-x: -50%;
 }
 
-@keyframes slideFromBottomfloat {
+:root[zen-floating-urlbar="true"]{
+    --urlbar-x: 0%;
+}
+
+#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) {
+  --urlbar-x: 0%;
+}
+
+
+/* === Default (Slide From Bottom) === */
+@media (-moz-pref("wireframe.urlbar-open.effect", "Slide from Bottom")) {
+  @keyframes slide-from-bottom {
     0% {
-        opacity: 0;
-        transform: translateX(0%) translateY(80px) scale(0.96);
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(80px) scale(0.96);
     }
     60% {
-        opacity: 1;
-        transform: translateX(0%) translateY(-4px) scale(1.02);
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-4px) scale(1.02);
     }
     100% {
-        opacity: 1;
-        transform: translateX(0%) translateY(0) scale(1);
-        filter: none;
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1);
+      filter: none;
     }
+  }
+
+  #urlbar[open] {
+    animation: slide-from-bottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  }
 }
+
+
+/* === Magnetic Rise === */
+@media (-moz-pref("wireframe.urlbar-open.effect", "Magnetic Rise")) {
+  @keyframes magneticRise {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(60px) scale(0.95);
+      filter: blur(2px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-6px) scale(1.03);
+      filter: blur(0.3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: magneticRise 0.18s cubic-bezier(0.33, 1, 0.68, 1) forwards !important;
+  }
+}
+  
+@media (-moz-pref("wireframe.urlbar-open.effect", "PopCorn")) {
+  @keyframes PopCorn {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(20px) scale(0.85) rotate(1deg);
+      filter: brightness(0.7) contrast(1.3);
+    }
+    40% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-4px) scale(1.05);
+      filter: brightness(1.1);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: PopCorn 0.33s cubic-bezier(0.7, 0, 0.3, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Drop Off")) {
+  @keyframes DropOff {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(-60px) scale(1.05);
+      filter: blur(1px) brightness(1.1);
+    }
+    70% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(6px);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: DropOff 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Neon Flash")) {
+  @keyframes neonFlash {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) scale(0.96);
+      filter: brightness(2.5) contrast(1.5);
+    }
+    40% {
+      opacity: 1;
+      filter: brightness(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: neonFlash 0.22s cubic-bezier(0.6, 0, 0.4, 1) forwards !important;
+  }
+}
+  
+@media (-moz-pref("wireframe.urlbar-open.effect", "Soft Warp")) {
+  @keyframes softWarp {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) scale(1.12) skewX(6deg);
+      filter: blur(4px) brightness(1.4);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) scale(0.98) skewX(-2deg);
+      filter: blur(1px);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: softWarp 0.26s cubic-bezier(0.33, 1, 0.68, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Unfold")) {
+  @keyframes Unfold {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) rotateX(-90deg) scaleY(0.8);
+      transform-origin: top;
+      filter: blur(2px);
+    }
+    70% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) rotateX(10deg) scaleY(1.02);
+      transform-origin: top;
+      filter: blur(0.3px);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) rotateX(0deg) scaleY(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: Unfold 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Glitch Phase")) {
+  @keyframes glitchPhase {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(60px) scale(0.9) skewX(12deg);
+      filter: hue-rotate(90deg) saturate(2);
+    }
+    20% {
+      transform: translateX(calc(var(--urlbar-x) + 6px)) translateY(-6px) skewX(-8deg);
+      filter: contrast(2) hue-rotate(-40deg);
+    }
+    40% {
+      transform: translateX(calc(var(--urlbar-x) - 4px)) translateY(2px) skewX(4deg);
+      filter: brightness(1.4);
+    }
+    70% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-2px) scale(1.02);
+      filter: none;
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1);
+    }
+  }
+
+  #urlbar[open] {
+    animation: glitchPhase 0.4s steps(4) forwards !important;
+  }
+}
+  
+@media (-moz-pref("wireframe.urlbar-open.effect", "Orbit Entry")) {
+  @keyframes orbitEntry {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(100px) rotate(540deg) scale(0.2);
+      filter: blur(3px) brightness(1.5);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-10px) rotate(-20deg) scale(1.1);
+      filter: blur(0.6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(0) rotate(0deg) scale(1);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: orbitEntry 0.6s cubic-bezier(0.2, 0.8, 0.4, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Slam Up")) {
+  @keyframes slamUp {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(100px) scale(0.95) rotate(-3deg);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(-6px) scale(1.05) rotate(2deg);
+    }
+    80% {
+      transform: translateX(var(--urlbar-x)) translateY(2px) scale(0.98);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) translateY(0) scale(1) rotate(0deg);
+    }
+  }
+
+  #urlbar[open] {
+    animation: slamUp 0.25s cubic-bezier(0.3, 1.5, 0.6, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Slinky Drop")) {
+  @keyframes slinkyDrop {
+    0% {
+      opacity: 0;
+      transform: translateX(var(--urlbar-x)) translateY(-120px) scaleY(1.4) rotateX(60deg);
+      filter: blur(1.5px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(var(--urlbar-x)) translateY(8px) scaleY(0.9) rotateX(-5deg);
+    }
+    100% {
+      transform: translateX(var(--urlbar-x)) translateY(0) scaleY(1) rotateX(0deg);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    animation: slinkyDrop 0.65s cubic-bezier(0.25, 1.2, 0.5, 1) forwards !important;
+  }
+}
+
+@media (-moz-pref("wireframe.urlbar-open.effect", "Plane Shift")) {
+  @keyframes depthSurge {
+    0% {
+      opacity: 0;
+      transform: perspective(700px)
+                 translateX(var(--urlbar-x))
+                 translateY(70px)
+                 translateZ(-2800px)
+                 rotateX(55deg)
+                 scale(0.9);
+      transform-origin: top center;
+      filter: blur(6px) brightness(1.2);
+    }
+    50% {
+      opacity: 1;
+      transform: perspective(700px)
+                 translateX(var(--urlbar-x))
+                 translateY(15px)
+                 translateZ(80px)
+                 rotateX(42deg)
+                 scale(0.88);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(700px)
+                 translateX(var(--urlbar-x))
+                 translateY(0)
+                 translateZ(0)
+                 rotateX(36deg)
+                 scale(0.88);
+      filter: none;
+    }
+  }
+
+  #urlbar[open] {
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    transform: perspective(700px) rotateX(36deg);
+    animation: depthSurge 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+    backface-visibility: hidden;
+  }
+  
+  /* === Base Depth + Perspective Setup === */
+  #urlbar[open],
+  #urlbar[open] .urlbarView {
+    overflow: visible !important;
+    perspective: 1200px !important;
+    transform-style: preserve-3d !important;
+  }
+
+  /* Results list — the only one allowed to clip and scroll */
+  #urlbar[open] .urlbarView-results {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: auto !important; /* tweak visible height */
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 1;
+    mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,1) 90%,
+      rgba(0,0,0,0)); /* subtle fade-out */
+  }
+
+  /* Smooth container boundaries */
+  .urlbarView {
+    overflow: hidden !important;
+    clip-path: inset(0 round 8px);
+  }
+
+  /* === Result Row Styling === */
+  .urlbarView-row {
+    position: relative;
+    transform: rotateX(36deg) translateZ(0);
+    transform-origin: center;
+    backface-visibility: hidden;
+    will-change: transform, filter;
+    transition:
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      filter 0.25s ease,
+      background-color 0.25s ease;
+    filter: brightness(0.95);
+    z-index: 2;
+  }
+
+  /* Hover: gentle 3D lift, not aggressive */
+  .urlbarView-row:hover {
+    z-index: 999;
+    transform: rotateX(30deg) translateZ(20px) scale(1.015);
+    filter: brightness(1.05)
+            drop-shadow(0 8px 10px rgba(0, 0, 0, 0.22));
+    background-color: color-mix(in srgb,
+      var(--toolbar-bgcolor) 85%,
+      white 15%);
+  }
+
+  /* Reset after hover */
+  .urlbarView-row:not(:hover) {
+    transform: rotateX(36deg) translateZ(0) scale(1);
+    filter: brightness(0.95);
+  }
+
+}
+
   
 @keyframes slideFromBottommulti {
     0% {
@@ -1359,19 +1769,3 @@
     }
 }
   
-@keyframes urlbar-snappy {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100%) scale(0.95);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-5%) scale(1.01);
-    }
-    80% {
-        transform: translateX(-50%) translateY(2%) scale(0.99);
-    }
-    100% {
-        transform: translateX(-50%) translateY(0%) scale(1);
-    }
-}
